@@ -48,9 +48,6 @@ const { content, setDemoMode, state, startTour, openPitch } = useMemory()
         <p class="text-[11px] uppercase tracking-[0.2em] text-white">Contact</p>
         <ul class="mt-4 space-y-2 text-sm">
           <li>
-            <a :href="content.brand.url" target="_blank" rel="noopener">onememoria.com</a>
-          </li>
-          <li>
             <a :href="content.brand.whatsappHref" target="_blank" rel="noopener">WhatsApp</a>
           </li>
           <li>

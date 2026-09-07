@@ -12,11 +12,9 @@ const { content } = useMemory()
     <section class="mx-auto max-w-3xl px-6 py-24 text-center">
       <RoyalMark class="mx-auto mb-8" size="lg" />
       <p class="museum-kicker">{{ content.brand.name }}</p>
-      <h1 class="museum-title mt-6">Une plateforme de conservation et de transmission de la mémoire numérique.</h1>
+      <h1 class="museum-title mt-6">La mémoire numérique d’Israël Mutombo et de son épouse.</h1>
       <p class="mt-8 text-sm leading-relaxed text-subtle">
-        OneMemoria n’est pas un album photo. Ce n’est pas un réseau social. Ce n’est pas simplement un site web.
-        C’est une manière de transformer des souvenirs dispersés en une histoire numérique organisée, consultable,
-        partageable et destinée à être transmise.
+        Quinze années d’une histoire commune, réunies ici pour être conservées, revécues et transmises.
       </p>
       <blockquote class="mt-12 font-display text-2xl italic text-primary-soft">
         {{ content.brand.manifesto[0] }}
@@ -26,7 +24,7 @@ const { content } = useMemory()
       <p class="mt-8 text-sm">{{ content.brand.signature }}</p>
       <div class="mt-12 flex flex-wrap justify-center gap-3">
         <RouterLink class="gold-btn-solid" to="/">Explorer la mémoire</RouterLink>
-        <a class="gold-btn" :href="content.brand.whatsappHref" target="_blank" rel="noopener">Contacter OneMemoria</a>
+        <a class="gold-btn" :href="content.brand.whatsappHref" target="_blank" rel="noopener">Nous écrire</a>
       </div>
     </section>
   </MemoryLayout>

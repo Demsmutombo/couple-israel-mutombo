@@ -46,7 +46,7 @@ function isActive(to) {
 
 <template>
   <header
-    class="fixed inset-x-0 top-0 z-40 transition duration-500"
+    class="site-nav fixed inset-x-0 top-0 z-50 transition duration-500"
     :class="navOnPhoto
       ? 'nav-hero bg-transparent'
       : 'bg-cream/95 text-ink shadow-lg shadow-black/10 backdrop-blur-md'"
@@ -59,7 +59,7 @@ function isActive(to) {
         @click="go('/')"
       >
         <BrandLogo size="md" />
-        <span class="text-[11px] font-semibold uppercase tracking-[0.18em]">{{ content.brand.name }}</span>
+        <span class="max-w-[8.5rem] text-left text-[9px] font-semibold uppercase leading-tight tracking-[0.12em] sm:max-w-none sm:text-[11px] sm:tracking-[0.16em]">{{ content.brand.name }}</span>
       </button>
 
       <div class="hidden items-center lg:flex">

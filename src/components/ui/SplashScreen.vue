@@ -57,7 +57,7 @@ onUnmounted(() => {
           </p>
         </div>
         <div class="absolute bottom-10 left-1/2 h-1 w-24 -translate-x-1/2 overflow-hidden rounded-full bg-white/10">
-          <div class="splash-progress h-full origin-left rounded-full bg-[#ed4d8b]" :style="{ '--splash-dur': `${duration}ms` }" />
+          <div class="splash-progress h-full origin-left rounded-full bg-primary" :style="{ '--splash-dur': `${duration}ms` }" />
         </div>
       </div>
     </Transition>

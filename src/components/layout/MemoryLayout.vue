@@ -22,7 +22,9 @@ useReveal(mainEl)
 
 <template>
   <div class="min-h-screen bg-page text-ink bottom-dock lg:pb-0">
-    <MemoryNav />
+    <Teleport to="body">
+      <MemoryNav />
+    </Teleport>
     <main ref="mainEl" :class="flush ? '' : 'pt-24'">
       <slot />
     </main>

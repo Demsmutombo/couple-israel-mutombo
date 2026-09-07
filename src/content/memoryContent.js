@@ -4,19 +4,19 @@
  */
 export const memoryContent = {
   meta: {
-    title: 'ONE MEMORIA — 15 ans · Israël Mutombo',
+    title: 'Couple Israël Mutombo — 15 ans',
     htmlLang: 'fr',
   },
 
   brand: {
-    name: 'ONE MEMORIA',
+    name: 'Couple Israël Mutombo',
     logo: '/logo.jpeg',
     signature: 'Vos moments passent. Votre mémoire reste.',
     manifesto: [
       'Nous ne conservons pas seulement des fichiers.',
       'Nous conservons les histoires qu’ils racontent.',
     ],
-    url: 'https://www.onememoria.com',
+    url: '',
     whatsappHref: 'https://api.whatsapp.com/send?phone=243991683269',
   },
 
@@ -611,7 +611,7 @@ export const memoryContent = {
     { n: '05', title: 'La cérémonie', body: 'Le renouvellement des vœux, heure par heure.' },
     { n: '06', title: 'Les témoignages', body: 'Les voix de ceux qui étaient là.' },
     { n: '07', title: 'Nos messages', body: 'Ce que le couple souhaite laisser.' },
-    { n: '08', title: 'Pour les générations futures', body: 'La raison d’être de OneMemoria : transmettre.' },
+    { n: '08', title: 'Pour les générations futures', body: 'La raison d’être de cette mémoire : transmettre.' },
   ],
 
   capsule: {
@@ -707,7 +707,7 @@ export const memoryContent = {
     { kicker: 'L’intelligence', title: 'Rechercher et comprendre.' },
     { kicker: 'La transmission', title: 'Préserver pour les générations futures.' },
     { kicker: 'L’objet', title: 'QR Memory.' },
-    { kicker: 'La protection', title: 'OneMemoria Vault.' },
+    { kicker: 'La protection', title: 'Une mémoire protégée.' },
     { kicker: 'La vision', title: 'Transformer les souvenirs en héritage.' },
   ],
 

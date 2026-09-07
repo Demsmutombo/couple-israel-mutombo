@@ -61,7 +61,7 @@ function onPrev() {
         <p class="museum-kicker">Visite guidée</p>
         <h2 class="mt-6 max-w-3xl font-display text-4xl text-white md:text-6xl">Bienvenue dans une mémoire pas comme les autres.</h2>
         <p class="mx-auto mt-8 max-w-xl text-sm leading-relaxed text-white/80">
-          Cette expérience a été imaginée pour conserver les 15 années d’une histoire, les voix de ceux qui l’ont
+        Cette mémoire a été conçue pour conserver les 15 années d’une histoire, les voix de ceux qui l’ont
           vécue et les souvenirs d’une journée qui mérite d’être transmise.
         </p>
         <button type="button" class="gold-btn-solid mt-10" @click="onNext">Commencer la visite</button>
@@ -79,14 +79,14 @@ function onPrev() {
         <p class="font-display text-3xl text-white md:text-5xl">15 années ont écrit une histoire.</p>
         <p class="mt-6 font-display text-2xl text-primary-soft md:text-4xl">Aujourd’hui, nous la conservons.</p>
         <p class="mt-6 font-display text-2xl text-white/80 md:text-4xl">Demain, nous la transmettrons.</p>
-        <p class="mt-14 text-[11px] uppercase tracking-[0.5em] text-primary">ONE MEMORIA</p>
+        <p class="mt-14 text-[11px] uppercase tracking-[0.28em] text-primary">Couple Israël Mutombo</p>
         <p class="mt-3 text-sm italic text-subtle">Vos moments passent. Votre mémoire reste.</p>
         <div class="mt-12 flex flex-col gap-3 sm:flex-row">
           <button type="button" class="gold-btn-solid" @click="mem.skipTour(); router.push('/')">
             Explorer la mémoire
           </button>
           <button type="button" class="gold-btn" @click="mem.skipTour(); router.push('/onememoria')">
-            Découvrir OneMemoria
+            Contact
           </button>
           <button type="button" class="gold-btn" @click="mem.restartTour()">↻ Recommencer la visite</button>
         </div>

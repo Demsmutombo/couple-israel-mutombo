@@ -38,7 +38,7 @@ const router = createRouter({
     { path: '/questions', name: 'questions', component: QuestionsView, meta: { title: '15 questions', order: 13 } },
     { path: '/carte', name: 'carte', component: MapView, meta: { title: 'Carte des souvenirs', order: 14 } },
     { path: '/messages', name: 'messages', component: MessagesView, meta: { title: 'Messages', order: 15 } },
-    { path: '/onememoria', name: 'brand', component: BrandView, meta: { title: 'OneMemoria', order: 16 } },
+    { path: '/onememoria', name: 'brand', component: BrandView, meta: { title: 'Contact', order: 16 } },
     { path: '/admin/:tab?', name: 'admin', component: AdminView, meta: { title: 'Administration', admin: true, order: 17 } },
     { path: '/:pathMatch(.*)*', redirect: '/' },
   ],
@@ -60,7 +60,7 @@ const router = createRouter({
 })
 
 router.afterEach((to) => {
-  const base = 'ONE MEMORIA — 15 ans · Israël Mutombo'
+  const base = 'Couple Israël Mutombo — 15 ans'
   document.title = to.meta?.title ? `${to.meta.title} · ${base}` : base
 })
 

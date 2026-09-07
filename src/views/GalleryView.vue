@@ -15,7 +15,7 @@ const shown = computed(() => (filter.value === 'Tous' ? items : items.filter((i)
 
 <template>
   <MemoryLayout>
-    <section class="mx-auto max-w-7xl px-6 py-16">
+    <section class="mx-auto max-w-7xl px-6 py-16 text-center">
       <p class="museum-kicker">Galerie</p>
       <h1 class="museum-title mt-4">Photographies & films</h1>
       <div class="mt-12 grid gap-6 lg:grid-cols-2">
@@ -30,7 +30,7 @@ const shown = computed(() => (filter.value === 'Tous' ? items : items.filter((i)
           :object-position="post.objectPosition"
         />
       </div>
-      <div class="mt-8 flex gap-2 overflow-x-auto pb-2">
+      <div class="mt-8 flex justify-center gap-2 overflow-x-auto pb-2">
         <button
           v-for="c in cats"
           :key="c"

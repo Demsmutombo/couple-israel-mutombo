@@ -9,11 +9,11 @@ const { content, couple } = useMemory()
 
 <template>
   <MemoryLayout>
-    <section class="mx-auto max-w-5xl px-6 py-16">
+    <section class="mx-auto max-w-5xl px-6 py-16 text-center md:text-left">
       <p class="museum-kicker">Notre histoire</p>
       <h1 class="museum-title mt-4">Tout commence par une histoire.</h1>
-      <p class="mt-6 max-w-2xl text-sm leading-relaxed text-ink/80">
-        OneMemoria ne commence pas avec une photo ou une vidéo. Elle commence avec l’histoire des personnes que nous
+      <p class="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-ink/80 md:mx-0">
+        Cette mémoire ne commence pas avec une photo ou une vidéo. Elle commence avec l’histoire des personnes que nous
         voulons préserver.
       </p>
       <p class="mt-4 text-sm text-subtle">

@@ -8,7 +8,7 @@ const { content } = useMemory()
 <template>
   <MemoryLayout>
     <section class="mx-auto max-w-4xl px-6 py-20 text-center">
-      <p class="museum-kicker">One Memoria Vault</p>
+      <p class="museum-kicker">Mémoire protégée</p>
       <h1 class="museum-title mt-4">Mémoire protégée</h1>
       <p class="mt-4 text-sm text-subtle">🔒 Les originaux restent ici. Simulation visuelle — pas de coffre réel connecté.</p>
       <div class="mt-14 grid gap-4 md:grid-cols-2">

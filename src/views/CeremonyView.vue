@@ -29,7 +29,7 @@ function openStep(s) {
 
 <template>
   <MemoryLayout>
-    <section class="mx-auto max-w-6xl px-6 py-16">
+    <section class="mx-auto max-w-6xl px-6 py-16 text-center md:text-left">
       <p class="museum-kicker">Cérémonie</p>
       <h1 class="museum-title mt-4">Revivre la cérémonie</h1>
       <div class="mt-10 flex gap-3 overflow-x-auto pb-4">

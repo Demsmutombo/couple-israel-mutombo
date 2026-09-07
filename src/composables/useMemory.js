@@ -62,14 +62,14 @@ export const tourBeats = [
     route: '/histoire',
     kicker: 'HISTOIRE',
     title: 'Tout commence par une histoire.',
-    body: 'OneMemoria ne commence pas avec une photo ou une vidéo. Elle commence avec l’histoire des personnes que nous voulons préserver.',
+    body: 'Cette mémoire ne commence pas avec une photo ou une vidéo. Elle commence avec l’histoire des personnes que nous voulons préserver.',
   },
   {
     id: 'ans',
     route: '/timeline',
     kicker: '15 ANS',
     title: '15 ans ne tiennent pas dans une publication.',
-    body: 'Les souvenirs sont souvent dispersés entre téléphones, réseaux sociaux, albums et messages. OneMemoria les rassemble dans une histoire structurée.',
+    body: 'Les souvenirs sont souvent dispersés entre téléphones, réseaux sociaux, albums et messages. Ici, ils se rassemblent dans une histoire structurée.',
   },
   {
     id: 'ceremonie',
@@ -103,7 +103,7 @@ export const tourBeats = [
     id: 'capsule',
     route: '/capsule',
     kicker: 'CAPSULE',
-    title: 'Mais OneMemoria ne conserve pas seulement le passé.',
+    title: 'Mais cette mémoire ne conserve pas seulement le passé.',
     body: 'Elle permet aussi de parler au futur.',
   },
   {
