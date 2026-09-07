@@ -6,12 +6,6 @@ const emit = defineEmits(['start'])
 
 onMounted(() => {
   document.body.classList.add('overflow-hidden')
-  try {
-    localStorage.removeItem('om-entered')
-    sessionStorage.removeItem('om-entered')
-  } catch {
-    /* ignore */
-  }
 })
 
 function start() {

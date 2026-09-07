@@ -9,28 +9,12 @@ const router = useRouter()
 const route = useRoute()
 const { content } = useMemory()
 const open = ref(false)
-const more = ref(false)
 const scrolled = ref(false)
 const onHero = computed(() => route.path === '/')
 const navOnPhoto = computed(() => onHero.value && !scrolled.value)
 
-const extra = [
-  { to: '/apropos', label: 'À propos' },
-  { to: '/evenement', label: '15 ans' },
-  { to: '/temoignages', label: 'Témoignages' },
-  { to: '/musee', label: 'Musée' },
-  { to: '/livre', label: 'Livre' },
-  { to: '/capsule', label: 'Capsule' },
-  { to: '/questions', label: '15 questions' },
-  { to: '/carte', label: 'Carte' },
-  { to: '/vault', label: 'Vault' },
-  { to: '/memoire', label: 'Mémoire IA' },
-  { to: '/admin', label: 'Admin' },
-]
-
 function go(to) {
   open.value = false
-  more.value = false
   router.push(to)
 }
 
@@ -78,23 +62,6 @@ function isActive(to) {
         >
           {{ item.label }}
         </button>
-        <div class="relative">
-          <button type="button" class="nav-link" @click="more = !more">Plus ▾</button>
-          <div
-            v-if="more"
-            class="absolute left-0 top-full mt-2 min-w-48 border border-ink/10 bg-cream p-2 text-left shadow-xl"
-          >
-            <button
-              v-for="item in extra"
-              :key="item.to"
-              type="button"
-              class="block w-full px-3 py-2 text-left text-[11px] uppercase tracking-[0.16em] text-ink/80 hover:text-ink"
-              @click="go(item.to)"
-            >
-              {{ item.label }}
-            </button>
-          </div>
-        </div>
       </div>
 
       <div class="flex items-center gap-2">
@@ -117,15 +84,6 @@ function isActive(to) {
         :key="item.to"
         type="button"
         class="block w-full py-3 text-left text-xs uppercase tracking-[0.16em]"
-        @click="go(item.to)"
-      >
-        {{ item.label }}
-      </button>
-      <button
-        v-for="item in extra"
-        :key="'m-' + item.to"
-        type="button"
-        class="block w-full py-3 text-left text-xs uppercase tracking-[0.16em] text-subtle"
         @click="go(item.to)"
       >
         {{ item.label }}

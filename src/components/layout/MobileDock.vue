@@ -7,9 +7,9 @@ const route = useRoute()
 const items = [
   { to: '/', label: 'Accueil', icon: 'fas fa-landmark' },
   { to: '/histoire', label: 'Histoire', icon: 'fas fa-book-open' },
+  { to: '/parcours', label: 'Parcours', icon: 'fas fa-microphone' },
   { to: '/galerie', label: 'Galerie', icon: 'fas fa-camera' },
-  { to: '/ceremonie', label: 'Cérémonie', icon: 'fas fa-film' },
-  { to: '/musee', label: 'Musée', icon: 'fas fa-th-large' },
+  { to: '/famille', label: 'Famille', icon: 'fas fa-users' },
 ]
 </script>
 

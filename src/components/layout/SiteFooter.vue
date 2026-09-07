@@ -15,7 +15,7 @@ const { content } = useMemory()
       <p class="mt-4 text-sm">{{ content.footer.quotePremium }}</p>
     </div>
 
-    <div class="mx-auto mt-14 grid max-w-7xl gap-10 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="mx-auto mt-14 grid max-w-7xl gap-10 sm:grid-cols-2">
       <div>
         <p class="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-white">
           <BrandLogo size="md" />
@@ -29,15 +29,6 @@ const { content } = useMemory()
           <li v-for="item in content.nav" :key="item.to">
             <RouterLink :to="item.to">{{ item.label }}</RouterLink>
           </li>
-        </ul>
-      </div>
-      <div>
-        <p class="text-[11px] uppercase tracking-[0.2em] text-white">Mémoire</p>
-        <ul class="mt-4 space-y-2 text-sm">
-          <li><RouterLink to="/ceremonie">Cérémonie</RouterLink></li>
-          <li><RouterLink to="/voix">Voix</RouterLink></li>
-          <li><RouterLink to="/livre">Livre</RouterLink></li>
-          <li><RouterLink to="/musee">Musée</RouterLink></li>
         </ul>
       </div>
     </div>

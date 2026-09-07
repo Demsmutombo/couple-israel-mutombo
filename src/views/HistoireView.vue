@@ -2,6 +2,7 @@
 import { RouterLink } from 'vue-router'
 import MemoryLayout from '@/components/layout/MemoryLayout.vue'
 import ArchiveVisual from '@/components/ui/ArchiveVisual.vue'
+import CoupleAbout from '@/components/memory/CoupleAbout.vue'
 import { useMemory } from '@/composables/useMemory.js'
 
 const { content, couple } = useMemory()
@@ -21,7 +22,9 @@ const chapters = [
       </p>
     </section>
 
-    <section class="mx-auto max-w-6xl space-y-16 px-6 pb-20">
+    <CoupleAbout />
+
+    <section class="mx-auto max-w-6xl space-y-16 px-6 py-16">
       <article
         v-for="(chapter, i) in chapters"
         :key="chapter.title"
@@ -43,12 +46,23 @@ const chapters = [
         </div>
       </article>
 
-      <div class="border-t border-primary/15 pt-12 text-center">
-        <p class="museum-kicker">Histoire complète</p>
-        <p class="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-ink/80">
+      <div class="border-t border-primary/15 pt-12">
+        <p class="museum-kicker text-center">2011 — 2026</p>
+        <div class="mt-10 space-y-10">
+          <article v-for="t in content.timeline" :key="t.id" class="grid items-center gap-6 md:grid-cols-12">
+            <p class="font-display text-4xl text-primary md:col-span-3">{{ t.year }}</p>
+            <div class="md:col-span-9">
+              <h2 class="font-display text-3xl">{{ t.title }}</h2>
+              <p class="mt-3 text-sm leading-relaxed text-subtle">{{ t.description }}</p>
+            </div>
+          </article>
+        </div>
+        <p class="mx-auto mt-10 max-w-2xl text-center text-sm leading-relaxed text-ink/80">
           {{ content.story.fullStory }}
         </p>
-        <RouterLink class="gold-btn mt-10 inline-flex" to="/evenement">Voir les étapes importantes</RouterLink>
+        <div class="mt-10 text-center">
+          <RouterLink class="gold-btn inline-flex" to="/ceremonie">Revivre la cérémonie</RouterLink>
+        </div>
       </div>
     </section>
   </MemoryLayout>

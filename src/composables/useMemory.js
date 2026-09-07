@@ -2,7 +2,16 @@ import { computed, reactive } from 'vue'
 import { memoryContent } from '@/content'
 
 const STORAGE_ENTERED = 'om-entered'
+const STORAGE_WELCOME = 'om-welcome-seen'
 const STORAGE_DEMO = 'om-demo-mode'
+
+function readWelcomeSeen() {
+  try {
+    return localStorage.getItem(STORAGE_WELCOME) === '1' || localStorage.getItem(STORAGE_ENTERED) === '1'
+  } catch {
+    return false
+  }
+}
 
 function readDemo() {
   try {
@@ -16,6 +25,7 @@ function readDemo() {
 
 const state = reactive({
   entered: false,
+  welcomeSeen: false,
   demoMode: true,
   role: 'VISITEUR',
   musicOn: false,
@@ -51,6 +61,7 @@ const state = reactive({
 
 try {
   state.entered = localStorage.getItem(STORAGE_ENTERED) === '1'
+  state.welcomeSeen = readWelcomeSeen()
   state.demoMode = readDemo()
 } catch {
   /* ignore */
@@ -180,6 +191,16 @@ export function useMemory() {
     }
   }
 
+  function markWelcomeSeen() {
+    state.welcomeSeen = true
+    persistEntered(true)
+    try {
+      localStorage.setItem(STORAGE_WELCOME, '1')
+    } catch {
+      /* ignore */
+    }
+  }
+
   function enterMemory() {
     persistEntered(true)
     track('feature_opened', { name: 'enter' })
@@ -290,6 +311,7 @@ export function useMemory() {
     persistEntered,
     setDemoMode,
     enterMemory,
+    markWelcomeSeen,
     startTour,
     skipTour,
     beginTourSteps,

@@ -39,7 +39,7 @@ const family = content.family
     <section class="mx-auto max-w-5xl px-6 pb-20 text-center">
       <h2 class="font-display text-3xl text-ink">{{ family.others.sectionTitle }}</h2>
       <p class="mt-4 font-display text-xl text-subtle">{{ family.others.names }}</p>
-      <RouterLink class="gold-btn mt-10 inline-flex" to="/voix">Les voix de la famille</RouterLink>
+      <RouterLink class="gold-btn mt-10 inline-flex" to="/voeux">Laisser un message</RouterLink>
     </section>
   </MemoryLayout>
 </template>

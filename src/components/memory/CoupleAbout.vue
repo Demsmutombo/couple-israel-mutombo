@@ -52,7 +52,7 @@ const about = content.about
         </article>
       </div>
       <div v-if="preview" class="mt-10 text-center">
-        <RouterLink class="gold-btn inline-flex" to="/apropos">Lire à propos du couple</RouterLink>
+        <RouterLink class="gold-btn inline-flex" to="/histoire">Lire l’histoire</RouterLink>
       </div>
     </div>
   </section>

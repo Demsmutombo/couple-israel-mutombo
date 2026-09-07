@@ -203,6 +203,41 @@ export const memoryContent = {
         objectPosition: 'center 20%',
       },
     ],
+    facebookAlbum: {
+      kicker: 'Album',
+      title: 'Ils étaient là',
+      note: 'Les souvenirs s’affichent ici, dans la mémoire.',
+      items: [
+        '1062517713321659',
+        '1062517756654988',
+        '1062517793321651',
+        '1062517826654981',
+        '1062517883321642',
+        '1062517919988305',
+        '1062517969988300',
+        '1062518033321627',
+        '1062518073321623',
+        '1062518116654952',
+        '1062518176654946',
+        '1062518219988275',
+        '1062518266654937',
+        '1062518349988262',
+        '1062518396654924',
+        '1062518433321587',
+        '1062518473321583',
+        '1062518526654911',
+        '1062518589988238',
+        '1062518636654900',
+        '1062518686654895',
+        '1062518723321558',
+        '1062518763321554',
+      ].map((id, index) => ({
+        id: `fb-album-${id}`,
+        fbid: id,
+        href: `https://www.facebook.com/photo/?fbid=${id}&set=pcb.1062518806654883`,
+        title: `Souvenir ${String(index + 1).padStart(2, '0')}`,
+      })),
+    },
   },
 
   demo: {
@@ -216,9 +251,10 @@ export const memoryContent = {
     { to: '/histoire', label: 'Histoire' },
     { to: '/galerie', label: 'Galerie' },
     { to: '/ceremonie', label: 'Cérémonie' },
-    { to: '/voix', label: 'Voix' },
     { to: '/famille', label: 'Famille' },
+    { to: '/carte', label: 'Carte' },
     { to: '/voeux', label: 'Messages' },
+    { to: '/parcours', label: 'Parcours' },
   ],
 
   museumRooms: [
@@ -255,7 +291,7 @@ export const memoryContent = {
       image: '/img/memoire/post-israel-3.jpg',
       objectPosition: 'center 18%',
       description:
-        'Israël Mutombo, aux côtés de son épouse, construit depuis 2011 une histoire de quinze années. Cette mémoire en conserve le visage, les images et la célébration de 2026.',
+        'Journaliste d’investigation, présentateur de Bosolo na Politik et fondateur de Bosolo TV. Aux côtés de son épouse, il construit depuis 2011 une histoire de quinze années — la vie publique et la vie de famille dans la même mémoire.',
     },
     bride: {
       title: 'La femme',
@@ -266,6 +302,148 @@ export const memoryContent = {
       description:
         'À ses côtés, la femme — dont le nom sera renseigné ici — partage ce chemin depuis 2011. Les photographies du couple, réunies dans cette archive, gardent le visage de leur vie commune.',
     },
+  },
+
+  parcours: {
+    kicker: 'L’homme public',
+    title: 'Israël Mutombo',
+    script: 'le parcours',
+    subtitle: 'Journaliste d’investigation · Présentateur · Fondateur de Bosolo TV',
+    nickname: 'Sango mokonzi',
+    portrait: '/img/memoire/post-israel-3.jpg',
+    objectPosition: 'center 18%',
+    intro:
+      'Né le 11 mars 1978 dans le Kasaï, Israël Mutombo Tshibwabwa s’est imposé comme l’une des voix les plus reconnues de l’audiovisuel congolais. Biologiste de formation, autodidacte des médias, il a fait du lingala, de l’humour et d’un franc-parler sans langue de bois le style d’un journalisme populaire — puis d’une entreprise de télévision.',
+    identity: [
+      { label: 'Nom', value: 'Israël Mutombo Tshibwabwa' },
+      { label: 'Naissance', value: '11 mars 1978 · Kasaï' },
+      { label: 'Surnom', value: 'Sango mokonzi' },
+      { label: 'Formation première', value: 'Biologie' },
+      { label: 'Métier', value: 'Journaliste d’investigation' },
+      { label: 'Maison', value: 'Bosolo TV' },
+    ],
+    timeline: [
+      {
+        year: '1978',
+        title: 'Naissance au Kasaï',
+        text: 'Israël Mutombo Tshibwabwa naît le 11 mars 1978. Le Kasaï reste le point d’origine d’un parcours qui se déploiera ensuite à Kinshasa, devant les caméras.',
+      },
+      {
+        year: 'Formé',
+        title: 'Scientifique, puis médias',
+        text: 'Formé en biologie, il s’oriente vers la communication et l’audiovisuel. Le journalisme, il l’apprend sur le terrain — sans école de presse classique.',
+      },
+      {
+        year: 'Débuts',
+        title: 'Africa TV, Congo-web, PSTV',
+        text: 'Il commence à la télévision sur Africa TV, puis rejoint Congo-web et PSTV. Ces premières rédactions préparent le style qui le fera connaître.',
+      },
+      {
+        year: 'Bosolo',
+        title: 'Bosolo na Politik',
+        text: 'Il crée Bosolo na Politik — « la vérité dans la politique ». L’émission socio-politique, en lingala, devient un rendez-vous du débat public congolais.',
+      },
+      {
+        year: 'Chaîne',
+        title: 'Bosolo TV',
+        text: 'L’émission devient une chaîne. Bosolo TV, présentée comme une télévision d’investigation, dote la marque d’une rédaction et d’une diffusion multi-plateformes.',
+      },
+      {
+        year: '2021',
+        title: 'Arrêté, puis libre',
+        text: 'Le 15 avril 2021, Radio Okapi rapporte son arrestation à Kinshasa par l’ANR, puis sa libération le soir même. Il écrit : « Pour l’amour de mon peuple, je ne me tairai point. »',
+      },
+      {
+        year: '2022',
+        title: 'Le chemin avant le micro',
+        text: 'Lors des FEKIN Awards, il raconte avoir conduit un taxi pendant des années pour tenir, entre Victoire et Salongo — un témoignage de résilience qu’il adresse aux jeunes.',
+      },
+      {
+        year: 'Droit',
+        title: 'Mémoire et grande distinction',
+        text: 'À l’Université chrétienne Cardinal Malula, il soutient un mémoire sur la protection de l’enfant en droit positif congolais face au phénomène des enfants de la rue, mention grande distinction.',
+      },
+      {
+        year: 'CHESD',
+        title: 'Hautes études stratégiques',
+        text: 'Auditeur du Collège des Hautes Études de Stratégie et de Défense, il défend un travail sur la communication des FARDC et de la Police nationale face à la population.',
+      },
+    ],
+    works: [
+      {
+        title: 'Bosolo na Politik',
+        kicker: 'L’émission',
+        text: 'Programme socio-politique devenu carrefour national. Ton direct, humour, lingala : une parole qui rompt avec la langue de bois et invite autorités comme citoyens au même plateau.',
+      },
+      {
+        title: 'Bosolo TV',
+        kicker: 'La chaîne',
+        text: 'De la marque personnelle à l’entreprise. Une télévision qu’il présente comme dédiée à l’investigation, avec rédaction propre et diffusion sur plusieurs plateformes.',
+      },
+      {
+        title: 'Sango mokonzi',
+        kicker: 'Le style',
+        text: 'Un mélange d’humour, de pédagogie populaire et de franc-parler. Pour une partie du public, c’est la voix d’un journalisme proche du peuple ; pour d’autres, un style trop spectaculaire. L’influence, elle, n’est plus discutée.',
+      },
+      {
+        title: 'La formation continue',
+        kicker: 'L’étude',
+        text: 'Après la biologie, le droit de l’enfant, puis les études stratégiques au CHESD. Le micro n’a pas remplacé le banc : il l’a prolongé.',
+      },
+    ],
+    actions: [
+      {
+        title: 'Investigation',
+        text: 'Des sujets de gouvernance et de quotidien congolais, traités sans détour, au micro et à l’image.',
+      },
+      {
+        title: 'Débat public',
+        text: 'Un plateau où la politique se discute en lingala, accessible aux foyers autant qu’aux salons.',
+      },
+      {
+        title: 'Entrepreneuriat média',
+        text: 'Fonder une chaîne plutôt que rester seulement animateur : passer de la voix à la maison.',
+      },
+      {
+        title: 'Protection de l’enfance',
+        text: 'Un mémoire universitaire sur les enfants de la rue, au croisement du droit congolais et d’une cause sociale.',
+      },
+      {
+        title: 'Communication de défense',
+        text: 'Une recherche au CHESD sur la posture des FARDC et de la PNC face à la population.',
+      },
+      {
+        title: 'Parole et liberté',
+        text: 'Une arrestation documentée en 2021, une libération le jour même, et une phrase qui reste : ne pas se taire.',
+      },
+    ],
+    quote: 'Pour l’amour de mon peuple, je ne me tairai point.',
+    quoteMeta: 'Israël Mutombo, 15 avril 2021 — rapporté par Radio Okapi',
+    note:
+      'Cette page rassemble uniquement des faits publiés par des sources identifiées. Elle n’invente ni dates privées, ni nom de l’épouse, ni distinctions non documentées.',
+    sources: [
+      { label: 'Wikipédia — Israël Mutombo', href: 'https://fr.wikipedia.org/wiki/Isra%C3%ABl_Mutombo' },
+      {
+        label: 'Radio Okapi — arrestation, 15 avril 2021',
+        href: 'https://www.radiookapi.net/2021/04/15/actualite/justice/kinshasa-israel-mutombo-presentateur-de-lemission-bosolo-na-politik',
+      },
+      {
+        label: 'Radio Okapi — libération, 15 avril 2021',
+        href: 'https://www.radiookapi.net/2021/04/15/actualite/justice/kinshasa-le-journaliste-israel-mutombo-enfin-libre',
+      },
+      {
+        label: 'MwindaCongo — portrait médiatique',
+        href: 'https://www.mwindacongo.com/article/israel-mutombo-lirreverencieux-du-paysage-mediatique-congolais',
+      },
+      {
+        label: 'Mbote — mémoire, Université Cardinal Malula',
+        href: 'https://mbote.cd/buzz/israel-mutombo-journaliste-et-patron-de-bosolo-tv-obtient-sa-mention-grande-distinction-a-luniversite/193847/',
+      },
+      {
+        label: 'Mbote — recherche au CHESD',
+        href: 'https://mbote.cd/actualites/de-la-television-aux-hautes-etudes-strategiques-israel-mutombo-soutient-son-travail-sur-la-communication-de-larmee-et-de-la-police-au-chesd/204694/',
+      },
+    ],
   },
 
   story: {

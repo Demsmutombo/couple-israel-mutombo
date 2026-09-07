@@ -2,16 +2,15 @@
 import { ref } from 'vue'
 import WelcomeScreen from '@/components/ui/WelcomeScreen.vue'
 import SplashScreen from '@/components/ui/SplashScreen.vue'
-import PitchDeck from '@/components/ui/PitchDeck.vue'
 import PageTransition from '@/components/layout/PageTransition.vue'
 import MusicFab from '@/components/ui/MusicFab.vue'
 import { useMemory } from '@/composables/useMemory.js'
 
 const mem = useMemory()
-const phase = ref('welcome')
+const phase = ref(mem.state.welcomeSeen ? 'splash' : 'welcome')
 
 function onWelcomeStart() {
-  mem.enterMemory()
+  mem.markWelcomeSeen()
   phase.value = 'splash'
 }
 
@@ -26,5 +25,4 @@ function onSplashDone() {
   <SplashScreen v-else-if="phase === 'splash'" @dismissed="onSplashDone" />
   <PageTransition v-else />
   <MusicFab v-if="phase === 'ready'" />
-  <PitchDeck />
 </template>
