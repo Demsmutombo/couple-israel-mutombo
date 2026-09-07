@@ -16,14 +16,6 @@ function finish() {
   emit('dismissed')
 }
 
-function skip() {
-  if (timer) {
-    clearTimeout(timer)
-    timer = null
-  }
-  visible.value = false
-}
-
 onMounted(() => {
   document.body.classList.add('overflow-hidden')
   timer = setTimeout(() => {
@@ -42,11 +34,10 @@ onUnmounted(() => {
     <Transition name="splash" @after-leave="finish">
       <div
         v-if="visible"
-        class="fixed inset-0 z-[10000] flex cursor-pointer flex-col items-center justify-center bg-gradient-to-b from-brand-dark via-splash-mid to-void px-6"
+        class="fixed inset-0 z-[10000] flex flex-col items-center justify-center bg-gradient-to-b from-brand-dark via-splash-mid to-void px-6"
         role="dialog"
         aria-label="Ouverture"
         aria-busy="true"
-        @click="skip"
       >
         <div class="flex max-w-3xl flex-col items-center text-center">
           <div class="splash-logo-float">

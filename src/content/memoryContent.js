@@ -21,6 +21,9 @@ export const memoryContent = {
   },
 
   splash: {
+    title: '15 ans — Israël & son épouse',
+    welcome: 'Bienvenue dans une mémoire imaginée pour raconter 15 années d’histoire.',
+    cta: 'Commencer la découverte',
     minVisibleMs: 3200,
   },
 
@@ -733,34 +736,39 @@ export const memoryContent = {
     note: 'Simulation visuelle. Aucun chiffrement réel n’est actif dans cette maquette.',
   },
 
+  mapCenter: {
+    query: 'République démocratique du Congo',
+    zoom: 6,
+  },
+
   mapPlaces: [
     {
       id: 'p1',
-      x: 42,
-      y: 48,
       title: 'Lieu du mariage',
-      text: 'Le lieu où leur histoire a été célébrée.',
+      text: 'Le lieu où leur histoire a été célébrée. L’adresse exacte sera ajoutée ici.',
+      query: '',
+      zoom: 13,
     },
     {
       id: 'p2',
-      x: 58,
-      y: 36,
-      title: 'Lieu d’une cérémonie',
-      text: 'Cérémonie de renouvellement. Adresse réelle non inventée.',
+      title: 'Célébration des 15 ans',
+      text: 'Le lieu de la journée de 2026. Adresse réelle à documenter.',
+      query: '',
+      zoom: 13,
     },
     {
       id: 'p3',
-      x: 28,
-      y: 62,
       title: 'Voyage',
-      text: 'Un déplacement familial à documenter.',
+      text: 'Un déplacement familial à relier à une ville ou un pays.',
+      query: '',
+      zoom: 6,
     },
     {
       id: 'p4',
-      x: 70,
-      y: 58,
       title: 'Moment familial',
       text: 'Un lieu du quotidien devenu souvenir.',
+      query: '',
+      zoom: 13,
     },
   ],
 

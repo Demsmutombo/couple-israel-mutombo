@@ -50,7 +50,7 @@ const state = reactive({
 })
 
 try {
-  state.entered = sessionStorage.getItem(STORAGE_ENTERED) === '1'
+  state.entered = localStorage.getItem(STORAGE_ENTERED) === '1'
   state.demoMode = readDemo()
 } catch {
   /* ignore */
@@ -165,7 +165,7 @@ export function useMemory() {
   function persistEntered(v) {
     state.entered = v
     try {
-      sessionStorage.setItem(STORAGE_ENTERED, v ? '1' : '0')
+      localStorage.setItem(STORAGE_ENTERED, v ? '1' : '0')
     } catch {
       /* ignore */
     }
