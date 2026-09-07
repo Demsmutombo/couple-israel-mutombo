@@ -7,10 +7,37 @@ import MusicFab from '@/components/ui/MusicFab.vue'
 import { useMemory } from '@/composables/useMemory.js'
 
 const mem = useMemory()
-const phase = ref(mem.state.welcomeSeen ? 'splash' : 'welcome')
+
+function comesFromQr() {
+  try {
+    return new URLSearchParams(window.location.search).get('from') === 'qr'
+  } catch {
+    return false
+  }
+}
+
+const fromQr = comesFromQr()
+if (fromQr) {
+  mem.prepareWelcomeEntry()
+}
+
+const phase = ref(fromQr || !mem.state.welcomeSeen ? 'welcome' : 'splash')
+
+function clearQrParam() {
+  try {
+    const url = new URL(window.location.href)
+    if (!url.searchParams.has('from')) return
+    url.searchParams.delete('from')
+    const next = `${url.pathname}${url.search}${url.hash}`
+    window.history.replaceState({}, '', next)
+  } catch {
+    /* ignore */
+  }
+}
 
 function onWelcomeStart() {
   mem.markWelcomeSeen()
+  clearQrParam()
   phase.value = 'splash'
 }
 

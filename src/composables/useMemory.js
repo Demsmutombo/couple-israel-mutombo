@@ -201,6 +201,11 @@ export function useMemory() {
     }
   }
 
+  function prepareWelcomeEntry() {
+    state.welcomeSeen = false
+    state.entered = false
+  }
+
   function enterMemory() {
     persistEntered(true)
     track('feature_opened', { name: 'enter' })
@@ -312,6 +317,7 @@ export function useMemory() {
     setDemoMode,
     enterMemory,
     markWelcomeSeen,
+    prepareWelcomeEntry,
     startTour,
     skipTour,
     beginTourSteps,
