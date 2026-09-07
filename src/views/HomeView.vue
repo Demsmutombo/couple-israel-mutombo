@@ -3,9 +3,10 @@ import { RouterLink } from 'vue-router'
 import MemoryLayout from '@/components/layout/MemoryLayout.vue'
 import ArchiveVisual from '@/components/ui/ArchiveVisual.vue'
 import CoupleAbout from '@/components/memory/CoupleAbout.vue'
+import QrMemory from '@/components/ui/QrMemory.vue'
 import { useMemory } from '@/composables/useMemory.js'
 
-const { content } = useMemory()
+const { content, couple } = useMemory()
 const media = content.media
 </script>
 
@@ -41,22 +42,7 @@ const media = content.media
 
     <CoupleAbout preview />
 
-    <section class="section-dark px-6 py-20 lg:px-8">
-      <div class="mx-auto max-w-3xl text-center">
-        <p class="museum-kicker">{{ content.parcours.kicker }}</p>
-        <h2 class="mt-4 font-display text-4xl text-white md:text-5xl">
-          {{ content.parcours.title }}
-          <em class="script block text-5xl">{{ content.parcours.script }}</em>
-        </h2>
-        <p class="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-white/75">
-          Journaliste d’investigation, voix de Bosolo na Politik, fondateur de Bosolo TV.
-          Le chemin public, à côté de l’histoire du couple.
-        </p>
-        <RouterLink class="gold-btn-solid mt-8 inline-flex" to="/parcours">Lire le parcours</RouterLink>
-      </div>
-    </section>
-
-    <section class="bg-page px-6 pb-20 pt-20 lg:px-8">
+    <section class="bg-page px-6 pb-20 pt-4 lg:px-8">
       <div class="mx-auto max-w-7xl text-center">
         <p class="museum-kicker">Galerie</p>
         <h2 class="mt-3 font-display text-4xl text-ink md:text-5xl">
@@ -78,13 +64,59 @@ const media = content.media
       </div>
     </section>
 
-    <section class="section-dark px-6 py-20 text-center lg:px-8">
-      <p class="museum-kicker">{{ content.message.voeuxKicker }}</p>
-      <h2 class="mt-4 font-display text-4xl text-white md:text-5xl">{{ content.message.voeuxTitle }}</h2>
-      <p class="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-white/75">
-        {{ content.message.voeuxIntro }}
+    <section class="relative overflow-hidden px-6 py-28 lg:px-8">
+      <ArchiveVisual
+        class="om-reveal-skip !absolute inset-0"
+        seed="parcours-bg"
+        ratio="h-full w-full"
+        :src="content.parcours.portrait"
+        alt="Israël Mutombo"
+        object-position="center 18%"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/60 to-black/40" />
+      <div class="relative z-10 mx-auto max-w-3xl text-center">
+        <p class="museum-kicker text-primary">{{ content.parcours.kicker }}</p>
+        <h2 class="mt-4 font-display text-4xl text-white md:text-5xl">
+          {{ content.parcours.title }}
+          <em class="script block text-5xl">{{ content.parcours.script }}</em>
+        </h2>
+        <p class="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-white/80">
+          Journaliste d’investigation, voix de Bosolo na Politik, fondateur de Bosolo TV.
+          Le chemin public, à côté de l’histoire du couple.
+        </p>
+        <RouterLink class="gold-btn-solid mt-8 inline-flex" to="/parcours">Lire le parcours</RouterLink>
+      </div>
+    </section>
+
+    <section class="relative overflow-hidden px-6 py-28 text-center lg:px-8">
+      <ArchiveVisual
+        class="om-reveal-skip !absolute inset-0"
+        seed="voeux-bg"
+        ratio="h-full w-full"
+        :src="media.couple"
+        alt="Israël Mutombo et son épouse"
+        object-position="center 20%"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/60 to-black/40" />
+      <div class="relative z-10 mx-auto max-w-3xl">
+        <p class="museum-kicker text-primary">{{ content.message.voeuxKicker }}</p>
+        <h2 class="mt-4 font-display text-4xl text-white md:text-5xl">{{ content.message.voeuxTitle }}</h2>
+        <p class="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-white/80">
+          {{ content.message.voeuxIntro }}
+        </p>
+        <RouterLink class="gold-btn-solid mt-8 inline-flex" to="/voeux">Laisser un message</RouterLink>
+      </div>
+    </section>
+
+    <section id="qr" class="bg-page px-6 py-20 text-center lg:px-8">
+      <p class="museum-kicker">QR Memory</p>
+      <h2 class="museum-title mt-3">Emporter la mémoire avec soi</h2>
+      <p class="mx-auto mt-4 max-w-lg text-sm text-subtle">
+        Scannez le QR pour accéder à la mémoire numérique.
       </p>
-      <RouterLink class="gold-btn-solid mt-8 inline-flex" to="/voeux">Laisser un message</RouterLink>
+      <div class="mt-12">
+        <QrMemory :years="couple.anniversary" :label="`${couple.anniversary} ANS — ${couple.shortName}`" />
+      </div>
     </section>
   </MemoryLayout>
 </template>
