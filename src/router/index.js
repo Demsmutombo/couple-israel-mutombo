@@ -1,0 +1,67 @@
+import { createRouter, createWebHistory } from 'vue-router'
+
+const HomeView = () => import('@/views/HomeView.vue')
+const HistoireView = () => import('@/views/HistoireView.vue')
+const TimelineView = () => import('@/views/TimelineView.vue')
+const CeremonyView = () => import('@/views/CeremonyView.vue')
+const VoicesView = () => import('@/views/VoicesView.vue')
+const GalleryView = () => import('@/views/GalleryView.vue')
+const TestimonialsView = () => import('@/views/TestimonialsView.vue')
+const FamilyView = () => import('@/views/FamilyView.vue')
+const BookView = () => import('@/views/BookView.vue')
+const CapsuleView = () => import('@/views/CapsuleView.vue')
+const VaultView = () => import('@/views/VaultView.vue')
+const MuseumView = () => import('@/views/MuseumView.vue')
+const MemoryCenterView = () => import('@/views/MemoryCenterView.vue')
+const QuestionsView = () => import('@/views/QuestionsView.vue')
+const MapView = () => import('@/views/MapView.vue')
+const MessagesView = () => import('@/views/MessagesView.vue')
+const BrandView = () => import('@/views/BrandView.vue')
+const AdminView = () => import('@/views/AdminView.vue')
+
+const router = createRouter({
+  history: createWebHistory(import.meta.env.BASE_URL),
+  routes: [
+    { path: '/', name: 'home', component: HomeView, meta: { title: 'Accueil', flush: true, order: 0 } },
+    { path: '/histoire', name: 'histoire', component: HistoireView, meta: { title: 'Notre histoire', order: 1 } },
+    { path: '/timeline', name: 'timeline', component: TimelineView, meta: { title: '15 ans', order: 2 } },
+    { path: '/ceremonie', name: 'ceremonie', component: CeremonyView, meta: { title: 'Cérémonie', order: 3 } },
+    { path: '/voix', name: 'voix', component: VoicesView, meta: { title: 'Voix', order: 4 } },
+    { path: '/galerie', name: 'galerie', component: GalleryView, meta: { title: 'Galerie', order: 5 } },
+    { path: '/temoignages', name: 'temoignages', component: TestimonialsView, meta: { title: 'Témoignages', order: 6 } },
+    { path: '/famille', name: 'famille', component: FamilyView, meta: { title: 'Famille', order: 7 } },
+    { path: '/livre', name: 'livre', component: BookView, meta: { title: 'Livre', order: 8 } },
+    { path: '/capsule', name: 'capsule', component: CapsuleView, meta: { title: 'Capsule temporelle', order: 9 } },
+    { path: '/vault', name: 'vault', component: VaultView, meta: { title: 'Vault', order: 10 } },
+    { path: '/musee', name: 'musee', component: MuseumView, meta: { title: 'Musée numérique', order: 11 } },
+    { path: '/memoire', name: 'memoire', component: MemoryCenterView, meta: { title: 'Notre mémoire', order: 12 } },
+    { path: '/questions', name: 'questions', component: QuestionsView, meta: { title: '15 questions', order: 13 } },
+    { path: '/carte', name: 'carte', component: MapView, meta: { title: 'Carte des souvenirs', order: 14 } },
+    { path: '/messages', name: 'messages', component: MessagesView, meta: { title: 'Messages', order: 15 } },
+    { path: '/onememoria', name: 'brand', component: BrandView, meta: { title: 'OneMemoria', order: 16 } },
+    { path: '/admin/:tab?', name: 'admin', component: AdminView, meta: { title: 'Administration', admin: true, order: 17 } },
+    { path: '/:pathMatch(.*)*', redirect: '/' },
+  ],
+  scrollBehavior(to, _from, savedPosition) {
+    if (savedPosition) return savedPosition
+    if (to.hash) {
+      return new Promise((resolve) => {
+        requestAnimationFrame(() => {
+          resolve({
+            el: to.hash,
+            behavior: 'smooth',
+            top: 88,
+          })
+        })
+      })
+    }
+    return { top: 0, behavior: 'smooth' }
+  },
+})
+
+router.afterEach((to) => {
+  const base = 'ONE MEMORIA — 15 ans · Israël Mutombo'
+  document.title = to.meta?.title ? `${to.meta.title} · ${base}` : base
+})
+
+export default router
