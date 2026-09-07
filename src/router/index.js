@@ -17,7 +17,6 @@ const MemoryCenterView = () => import('@/views/MemoryCenterView.vue')
 const QuestionsView = () => import('@/views/QuestionsView.vue')
 const MapView = () => import('@/views/MapView.vue')
 const MessagesView = () => import('@/views/MessagesView.vue')
-const BrandView = () => import('@/views/BrandView.vue')
 const AdminView = () => import('@/views/AdminView.vue')
 
 const router = createRouter({
@@ -42,7 +41,7 @@ const router = createRouter({
     { path: '/carte', name: 'carte', component: MapView, meta: { title: 'Carte des souvenirs', order: 15 } },
     { path: '/voeux', name: 'voeux', component: MessagesView, meta: { title: 'Messages', order: 16 } },
     { path: '/messages', redirect: '/voeux' },
-    { path: '/onememoria', name: 'brand', component: BrandView, meta: { title: 'Contact', order: 17 } },
+    { path: '/onememoria', redirect: '/' },
     { path: '/admin/:tab?', name: 'admin', component: AdminView, meta: { title: 'Administration', admin: true, order: 18 } },
     { path: '/:pathMatch(.*)*', redirect: '/' },
   ],

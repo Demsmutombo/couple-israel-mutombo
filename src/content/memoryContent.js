@@ -41,7 +41,7 @@ export const memoryContent = {
     hero: '/img/memoire/post-israel-3.jpg',
     opening: '/img/memoire/post-israel-3.jpg',
     couple: '/img/memoire/post-kinoiserie.jpg',
-    israel: '/img/memoire/post-israel-2.jpg',
+    israel: '/img/memoire/post-couple-rap2kin.jpg',
     epouse: '/img/memoire/post-couple-rap2kin.jpg',
     portraitGala: '/img/memoire/post-israel-1.jpg',
     before: '/img/memoire/post-israel-1.jpg',
@@ -166,14 +166,6 @@ export const memoryContent = {
         href: 'https://www.facebook.com/share/p/1K2uhRcUV7/',
       },
       {
-        id: 'ph-israel-2',
-        src: '/img/memoire/post-israel-2.jpg',
-        title: 'Portrait d’Israël Mutombo',
-        category: 'Couple',
-        objectPosition: 'center 18%',
-        href: 'https://www.facebook.com/share/p/18Cr2zTwoL/',
-      },
-      {
         id: 'ph-malachie',
         src: '/img/memoire/post-malachie.jpg',
         title: 'Danse — réception',
@@ -224,7 +216,6 @@ export const memoryContent = {
     { to: '/voix', label: 'Voix' },
     { to: '/famille', label: 'Famille' },
     { to: '/voeux', label: 'Messages' },
-    { to: '/onememoria', label: 'Contact' },
   ],
 
   museumRooms: [
@@ -235,7 +226,6 @@ export const memoryContent = {
     { to: '/galerie', label: 'Galerie', icon: '📸', text: 'Les photographies' },
     { to: '/famille', label: 'Famille', icon: '👨‍👩‍👧', text: 'Parents, témoins & proches' },
     { to: '/voeux', label: 'Messages', icon: '✉️', text: 'Écrire au couple' },
-    { to: '/onememoria', label: 'Contact', icon: '📞', text: 'Écrire au couple' },
     { to: '/ceremonie', label: 'Cérémonie', icon: '🎥', text: 'Revivre la journée' },
     { to: '/voix', label: 'Voix', icon: '🎙️', text: 'Ce que les images ne disent pas' },
     { to: '/livre', label: 'Livre', icon: '📚', text: 'L’héritage relié' },
@@ -259,7 +249,7 @@ export const memoryContent = {
       title: 'L’homme',
       name: 'Israël Mutombo',
       nickname: '',
-      image: '/img/memoire/post-israel-2.jpg',
+      image: '/img/memoire/post-israel-3.jpg',
       objectPosition: 'center 18%',
       description:
         'Israël Mutombo, aux côtés de son épouse, construit depuis 2011 une histoire de quinze années. Cette mémoire en conserve le visage, les images et la célébration de 2026.',
@@ -326,7 +316,7 @@ export const memoryContent = {
       {
         title: 'Le commencement',
         dateLabel: '2011',
-        image: '/img/memoire/post-israel-2.jpg',
+        image: '/img/memoire/post-israel-3.jpg',
         objectPosition: 'center 18%',
         html: 'Le point de départ de leur vie commune. Date exacte, lieu et récit d’époque à documenter.',
         videoUrl: null,
@@ -476,7 +466,7 @@ export const memoryContent = {
       description:
         'Le point de départ de leur vie commune. Date exacte, lieu et récit d’époque à documenter.',
       replaceable: true,
-      src: '/img/memoire/post-israel-2.jpg',
+      src: '/img/memoire/post-couple-rap2kin.jpg',
     },
     {
       id: '2026',
@@ -574,7 +564,7 @@ export const memoryContent = {
       name: 'Israël Mutombo',
       role: 'Époux — voix de la cérémonie',
       kind: 'Voix d’Israël',
-      src: '/img/memoire/post-israel-2.jpg',
+      src: '/img/memoire/post-couple-rap2kin.jpg',
     },
     {
       id: 'epouse',

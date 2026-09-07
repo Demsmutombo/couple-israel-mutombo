@@ -7,7 +7,7 @@ const { content } = useMemory()
 </script>
 
 <template>
-  <footer id="contact" class="bg-void px-6 py-16 text-white/80 lg:px-8">
+  <footer class="bg-void px-6 py-16 text-white/80 lg:px-8">
     <div class="mx-auto max-w-3xl text-center">
       <blockquote class="font-display text-2xl italic text-primary-soft">
         “{{ content.footer.quote }}”
@@ -15,7 +15,7 @@ const { content } = useMemory()
       <p class="mt-4 text-sm">{{ content.footer.quotePremium }}</p>
     </div>
 
-    <div class="mx-auto mt-14 grid max-w-7xl gap-10 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="mx-auto mt-14 grid max-w-7xl gap-10 sm:grid-cols-2 lg:grid-cols-3">
       <div>
         <p class="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-white">
           <BrandLogo size="md" />
@@ -38,16 +38,6 @@ const { content } = useMemory()
           <li><RouterLink to="/voix">Voix</RouterLink></li>
           <li><RouterLink to="/livre">Livre</RouterLink></li>
           <li><RouterLink to="/musee">Musée</RouterLink></li>
-        </ul>
-      </div>
-      <div>
-        <p class="text-[11px] uppercase tracking-[0.2em] text-white">Contact</p>
-        <ul class="mt-4 space-y-2 text-sm">
-          <li>
-            <a :href="content.contact.whatsappHref" target="_blank" rel="noopener">
-              WhatsApp · {{ content.contact.phoneLabel }}
-            </a>
-          </li>
         </ul>
       </div>
     </div>

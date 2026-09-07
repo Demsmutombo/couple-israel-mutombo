@@ -85,9 +85,6 @@ function onPrev() {
           <button type="button" class="gold-btn-solid" @click="mem.skipTour(); router.push('/')">
             Explorer la mémoire
           </button>
-          <button type="button" class="gold-btn" @click="mem.skipTour(); router.push('/onememoria')">
-            Contact
-          </button>
           <button type="button" class="gold-btn" @click="mem.restartTour()">↻ Recommencer la visite</button>
         </div>
       </div>
