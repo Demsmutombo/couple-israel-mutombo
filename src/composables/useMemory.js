@@ -204,6 +204,12 @@ export function useMemory() {
   function prepareWelcomeEntry() {
     state.welcomeSeen = false
     state.entered = false
+    try {
+      localStorage.removeItem(STORAGE_WELCOME)
+      localStorage.removeItem(STORAGE_ENTERED)
+    } catch {
+      /* ignore */
+    }
   }
 
   function enterMemory() {

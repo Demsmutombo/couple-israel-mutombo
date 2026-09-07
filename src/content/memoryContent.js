@@ -553,9 +553,9 @@ export const memoryContent = {
   },
 
   footer: {
-    creditLabel: 'Conçu par',
-    creditName: 'One Memoria',
-    creditUrl: 'https://www.onememoria.com',
+    creditLabel: '',
+    creditName: '',
+    creditUrl: '',
     quote: 'Vos moments passent. Votre mémoire reste.',
     quotePremium: 'Une union bâtie au fil du temps — Couple Israël Mutombo.',
   },

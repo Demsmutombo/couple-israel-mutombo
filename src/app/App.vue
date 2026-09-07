@@ -10,26 +10,43 @@ const mem = useMemory()
 
 function comesFromQr() {
   try {
-    return new URLSearchParams(window.location.search).get('from') === 'qr'
+    const params = new URLSearchParams(window.location.search)
+    return params.get('from') === 'qr' || params.get('welcome') === '1'
   } catch {
     return false
   }
 }
 
-const fromQr = comesFromQr()
-if (fromQr) {
+/** QR scanners usually open with no referrer; a refresh must stay on splash. */
+function isFreshExternalEntry() {
+  try {
+    const nav = performance.getEntriesByType('navigation')[0]
+    if (nav?.type === 'reload' || nav?.type === 'back_forward') return false
+    return !document.referrer
+  } catch {
+    return false
+  }
+}
+
+const forceWelcome = comesFromQr() || isFreshExternalEntry()
+if (forceWelcome) {
   mem.prepareWelcomeEntry()
 }
 
-const phase = ref(fromQr || !mem.state.welcomeSeen ? 'welcome' : 'splash')
+const phase = ref(forceWelcome || !mem.state.welcomeSeen ? 'welcome' : 'splash')
 
-function clearQrParam() {
+function clearEntryParams() {
   try {
     const url = new URL(window.location.href)
-    if (!url.searchParams.has('from')) return
-    url.searchParams.delete('from')
-    const next = `${url.pathname}${url.search}${url.hash}`
-    window.history.replaceState({}, '', next)
+    let changed = false
+    ;['from', 'welcome'].forEach((key) => {
+      if (url.searchParams.has(key)) {
+        url.searchParams.delete(key)
+        changed = true
+      }
+    })
+    if (!changed) return
+    window.history.replaceState({}, '', `${url.pathname}${url.search}${url.hash}`)
   } catch {
     /* ignore */
   }
@@ -37,7 +54,7 @@ function clearQrParam() {
 
 function onWelcomeStart() {
   mem.markWelcomeSeen()
-  clearQrParam()
+  clearEntryParams()
   phase.value = 'splash'
 }
 
