@@ -20,11 +20,10 @@ const { content } = useMemory()
             <h2 class="font-display text-2xl">{{ g.name }}</h2>
             <p class="text-xs uppercase tracking-[0.16em] text-primary">{{ g.relation }}</p>
             <p class="mt-4 text-sm leading-relaxed text-ink/80">« {{ g.message }} »</p>
-            <button type="button" class="gold-btn mt-6">Écouter le témoignage</button>
           </div>
         </article>
       </div>
-      <RouterLink class="gold-btn mt-12 inline-flex" to="/messages">Laisser un message au couple</RouterLink>
+      <RouterLink class="gold-btn mt-12 inline-flex" to="/voeux">Laisser un message au couple</RouterLink>
     </section>
   </MemoryLayout>
 </template>

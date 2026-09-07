@@ -66,7 +66,7 @@ export const tourBeats = [
   },
   {
     id: 'ans',
-    route: '/timeline',
+    route: '/evenement',
     kicker: '15 ANS',
     title: '15 ans ne tiennent pas dans une publication.',
     body: 'Les souvenirs sont souvent dispersés entre téléphones, réseaux sociaux, albums et messages. Ici, ils se rassemblent dans une histoire structurée.',
@@ -137,7 +137,7 @@ export const tourBeats = [
   },
   {
     id: 'futur',
-    route: '/timeline',
+    route: '/evenement',
     kicker: 'FUTUR',
     title: 'La mémoire ne s’arrête pas à la cérémonie.',
     body: 'Une mémoire qui évolue avec la famille — 2026, 2027, 2028, 2030.',

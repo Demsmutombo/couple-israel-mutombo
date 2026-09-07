@@ -1,17 +1,21 @@
 <script setup>
 import { RouterLink } from 'vue-router'
 import MemoryLayout from '@/components/layout/MemoryLayout.vue'
+import SearchMemory from '@/components/ui/SearchMemory.vue'
 
 const links = [
   { to: '/histoire', label: 'Histoire' },
-  { to: '/timeline', label: 'Timeline' },
+  { to: '/evenement', label: '15 ans' },
   { to: '/ceremonie', label: 'Cérémonie' },
   { to: '/galerie', label: 'Galerie' },
   { to: '/voix', label: 'Voix' },
   { to: '/temoignages', label: 'Témoignages' },
   { to: '/famille', label: 'Famille' },
   { to: '/livre', label: 'Livre' },
-  { to: '/capsule', label: 'Capsule temporelle' },
+  { to: '/capsule', label: 'Capsule' },
+  { to: '/questions', label: '15 questions' },
+  { to: '/carte', label: 'Carte' },
+  { to: '/vault', label: 'Vault' },
 ]
 </script>
 
@@ -20,7 +24,10 @@ const links = [
     <section class="mx-auto max-w-6xl px-6 py-16">
       <p class="museum-kicker">Centre de mémoire</p>
       <h1 class="museum-title mt-4">Notre mémoire</h1>
-      <div class="mt-10 flex flex-wrap gap-3">
+      <div class="mt-10">
+        <SearchMemory />
+      </div>
+      <div class="mt-12 flex flex-wrap gap-3">
         <RouterLink v-for="l in links" :key="l.to" :to="l.to" class="gold-btn">{{ l.label }}</RouterLink>
       </div>
     </section>

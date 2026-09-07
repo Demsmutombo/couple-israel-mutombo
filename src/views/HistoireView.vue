@@ -5,41 +5,51 @@ import ArchiveVisual from '@/components/ui/ArchiveVisual.vue'
 import { useMemory } from '@/composables/useMemory.js'
 
 const { content, couple } = useMemory()
+const chapters = [
+  { ...content.story.firstMeeting, side: 'left' },
+  { ...content.story.journey, side: 'right' },
+]
 </script>
 
 <template>
   <MemoryLayout>
-    <section class="mx-auto max-w-5xl px-6 py-16 text-center md:text-left">
-      <p class="museum-kicker">Notre histoire</p>
-      <h1 class="museum-title mt-4">Tout commence par une histoire.</h1>
-      <p class="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-ink/80 md:mx-0">
-        Cette mémoire ne commence pas avec une photo ou une vidéo. Elle commence avec l’histoire des personnes que nous
-        voulons préserver.
+    <section class="mx-auto max-w-6xl px-6 py-16 text-center">
+      <p class="museum-kicker">{{ content.story.sectionKicker }}</p>
+      <h1 class="museum-title mt-4">{{ content.story.sectionTitle }}</h1>
+      <p class="mx-auto mt-4 max-w-2xl text-sm text-subtle">
+        {{ couple.displayName }} · {{ couple.years }}
       </p>
-      <p class="mt-4 text-sm text-subtle">
-        {{ couple.husband }} et son épouse · {{ couple.years }}
-      </p>
-      <div class="mt-12 grid gap-6 md:grid-cols-2">
+    </section>
+
+    <section class="mx-auto max-w-6xl space-y-16 px-6 pb-20">
+      <article
+        v-for="(chapter, i) in chapters"
+        :key="chapter.title"
+        class="grid items-center gap-8 md:grid-cols-2"
+      >
         <ArchiveVisual
-          v-for="post in content.media.facebookPosts"
-          :key="post.id"
-          :seed="post.id"
-          :src="post.src"
-          :title="post.title"
-          kicker="Le couple"
-          :object-position="post.objectPosition"
+          :seed="chapter.title"
+          ratio="aspect-[4/5]"
+          :src="chapter.image"
+          :title="chapter.title"
+          :kicker="i === 0 ? 'Première rencontre' : 'Parcours'"
+          :object-position="chapter.objectPosition"
+          :class="chapter.side === 'right' ? 'md:order-2' : ''"
         />
+        <div :class="chapter.side === 'right' ? 'md:order-1 md:text-right' : ''">
+          <p class="text-xs font-semibold uppercase tracking-[0.18em] text-primary">{{ chapter.dateLabel }}</p>
+          <h2 class="mt-3 font-display text-3xl text-ink md:text-4xl">{{ chapter.title }}</h2>
+          <p class="mt-5 text-sm leading-relaxed text-ink/80">{{ chapter.body }}</p>
+        </div>
+      </article>
+
+      <div class="border-t border-primary/15 pt-12 text-center">
+        <p class="museum-kicker">Histoire complète</p>
+        <p class="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-ink/80">
+          {{ content.story.fullStory }}
+        </p>
+        <RouterLink class="gold-btn mt-10 inline-flex" to="/evenement">Voir les étapes importantes</RouterLink>
       </div>
-      <div class="mt-16 space-y-10">
-        <article v-for="t in content.timeline" :key="t.id" :id="t.id" class="grid items-center gap-6 border-t border-primary/15 pt-10 md:grid-cols-12">
-          <p class="font-display text-4xl text-primary md:col-span-3">{{ t.year }}</p>
-          <div class="md:col-span-9">
-            <h2 class="font-display text-3xl">{{ t.title }}</h2>
-            <p class="mt-3 text-sm leading-relaxed text-subtle">{{ t.description }}</p>
-          </div>
-        </article>
-      </div>
-      <RouterLink class="gold-btn mt-12 inline-flex" to="/timeline">Voir la timeline</RouterLink>
     </section>
   </MemoryLayout>
 </template>

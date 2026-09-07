@@ -1,31 +1,33 @@
 <script setup>
-import { RouterLink } from 'vue-router'
 import MemoryLayout from '@/components/layout/MemoryLayout.vue'
-import RoyalMark from '@/components/ui/RoyalMark.vue'
+import BrandLogo from '@/components/ui/BrandLogo.vue'
 import { useMemory } from '@/composables/useMemory.js'
 
-const { content } = useMemory()
+const { content, couple } = useMemory()
 </script>
 
 <template>
   <MemoryLayout>
-    <section class="mx-auto max-w-3xl px-6 py-24 text-center">
-      <RoyalMark class="mx-auto mb-8" size="lg" />
-      <p class="museum-kicker">{{ content.brand.name }}</p>
-      <h1 class="museum-title mt-6">La mémoire numérique d’Israël Mutombo et de son épouse.</h1>
-      <p class="mt-8 text-sm leading-relaxed text-subtle">
-        Quinze années d’une histoire commune, réunies ici pour être conservées, revécues et transmises.
-      </p>
-      <blockquote class="mt-12 font-display text-2xl italic text-primary-soft">
-        {{ content.brand.manifesto[0] }}
-        <br />
-        {{ content.brand.manifesto[1] }}
-      </blockquote>
-      <p class="mt-8 text-sm">{{ content.brand.signature }}</p>
-      <div class="mt-12 flex flex-wrap justify-center gap-3">
-        <RouterLink class="gold-btn-solid" to="/">Explorer la mémoire</RouterLink>
-        <a class="gold-btn" :href="content.brand.whatsappHref" target="_blank" rel="noopener">Nous écrire</a>
+    <section class="mx-auto max-w-2xl px-6 py-24 text-center">
+      <div class="mb-8 flex justify-center">
+        <BrandLogo size="lg" />
       </div>
+      <p class="museum-kicker">Contact</p>
+      <h1 class="museum-title mt-6">{{ couple.familyName }}</h1>
+      <p class="mt-6 text-sm leading-relaxed text-subtle">{{ content.message.main }}</p>
+
+      <p class="mt-12 text-[11px] uppercase tracking-[0.18em] text-primary">{{ content.contact.intro }}</p>
+      <div class="mt-6 flex flex-col items-center gap-3 text-sm">
+        <a class="gold-btn-solid" :href="content.contact.whatsappHref" target="_blank" rel="noopener">
+          WhatsApp · {{ content.contact.phoneLabel }}
+        </a>
+        <a class="gold-btn" :href="content.contact.phoneHref">{{ content.contact.phoneLabel }}</a>
+      </div>
+
+      <blockquote class="mt-16 font-display text-2xl italic text-primary-soft">
+        “{{ content.footer.quote }}”
+      </blockquote>
+      <p class="mt-4 text-sm text-subtle">{{ content.footer.quotePremium }}</p>
     </section>
   </MemoryLayout>
 </template>

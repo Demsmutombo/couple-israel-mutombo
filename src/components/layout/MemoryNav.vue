@@ -7,20 +7,25 @@ import { useMemory } from '@/composables/useMemory.js'
 
 const router = useRouter()
 const route = useRoute()
-const { content, startTour } = useMemory()
+const { content } = useMemory()
 const open = ref(false)
 const more = ref(false)
 const scrolled = ref(false)
 const onHero = computed(() => route.path === '/')
 const navOnPhoto = computed(() => onHero.value && !scrolled.value)
 
-const primary = [
-  { to: '/', label: 'Accueil' },
-  { to: '/histoire', label: 'Histoire' },
-  { to: '/galerie', label: 'Galerie' },
-  { to: '/ceremonie', label: 'Cérémonie' },
-  { to: '/voix', label: 'Voix' },
-  { to: '/onememoria', label: 'Contact' },
+const extra = [
+  { to: '/apropos', label: 'À propos' },
+  { to: '/evenement', label: '15 ans' },
+  { to: '/temoignages', label: 'Témoignages' },
+  { to: '/musee', label: 'Musée' },
+  { to: '/livre', label: 'Livre' },
+  { to: '/capsule', label: 'Capsule' },
+  { to: '/questions', label: '15 questions' },
+  { to: '/carte', label: 'Carte' },
+  { to: '/vault', label: 'Vault' },
+  { to: '/memoire', label: 'Mémoire IA' },
+  { to: '/admin', label: 'Admin' },
 ]
 
 function go(to) {
@@ -64,7 +69,7 @@ function isActive(to) {
 
       <div class="hidden items-center lg:flex">
         <button
-          v-for="item in primary"
+          v-for="item in content.nav"
           :key="item.to"
           type="button"
           class="nav-link"
@@ -80,7 +85,7 @@ function isActive(to) {
             class="absolute left-0 top-full mt-2 min-w-48 border border-ink/10 bg-cream p-2 text-left shadow-xl"
           >
             <button
-              v-for="item in content.nav.filter((n) => !primary.some((p) => p.to === n.to))"
+              v-for="item in extra"
               :key="item.to"
               type="button"
               class="block w-full px-3 py-2 text-left text-[11px] uppercase tracking-[0.16em] text-ink/80 hover:text-ink"
@@ -88,35 +93,11 @@ function isActive(to) {
             >
               {{ item.label }}
             </button>
-            <button
-              type="button"
-              class="block w-full px-3 py-2 text-left text-[11px] uppercase tracking-[0.16em] text-primary"
-              @click="go('/musee')"
-            >
-              Musée
-            </button>
-            <button
-              type="button"
-              class="block w-full px-3 py-2 text-left text-[11px] uppercase tracking-[0.16em] text-primary"
-              @click="go('/admin')"
-            >
-              Admin
-            </button>
           </div>
         </div>
       </div>
 
       <div class="flex items-center gap-2">
-        <button
-          type="button"
-          class="hidden px-5 py-2 text-[10px] uppercase tracking-[0.18em] transition md:inline"
-          :class="navOnPhoto
-            ? 'text-white hover:bg-white/15'
-            : 'text-ink hover:bg-ink/10'"
-          @click="startTour('guided')"
-        >
-          Découvrir
-        </button>
         <ThemeToggle :on-photo="navOnPhoto" />
         <button
           type="button"
@@ -136,6 +117,15 @@ function isActive(to) {
         :key="item.to"
         type="button"
         class="block w-full py-3 text-left text-xs uppercase tracking-[0.16em]"
+        @click="go(item.to)"
+      >
+        {{ item.label }}
+      </button>
+      <button
+        v-for="item in extra"
+        :key="'m-' + item.to"
+        type="button"
+        class="block w-full py-3 text-left text-xs uppercase tracking-[0.16em] text-subtle"
         @click="go(item.to)"
       >
         {{ item.label }}

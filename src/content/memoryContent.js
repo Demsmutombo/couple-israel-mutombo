@@ -27,8 +27,9 @@ export const memoryContent = {
   couple: {
     husband: 'Israël Mutombo',
     wife: '[Nom de l’épouse]',
-    displayName: 'Israël Mutombo & [Nom de l’épouse]',
+    displayName: 'Israël Mutombo & son épouse',
     shortName: 'Israël & son épouse',
+    familyName: 'Couple Israël Mutombo',
     years: '2011 — 2026',
     startYear: 2011,
     renewalYear: 2026,
@@ -49,6 +50,8 @@ export const memoryContent = {
     youtubeTitle: 'Mariage Israël Mutombo — cérémonie',
     youtubePoster: '/img/memoire/ceremonie-youtube.jpg',
     youtubeUrl: 'https://www.youtube.com/watch?v=LICyiHyQMv8',
+    driveUrl: null,
+    videosLink: 'https://www.youtube.com/watch?v=LICyiHyQMv8',
     steps: {
       arrivee: {
         photo: '/img/memoire/reel-ils-ont-dit.jpg',
@@ -193,7 +196,7 @@ export const memoryContent = {
         href: 'https://www.facebook.com/share/p/1BXyveoZCy/',
         src: '/img/memoire/post-israel-3.jpg',
         title: 'Israël Mutombo et son épouse',
-        caption: 'Le marié et la mariée',
+        caption: 'L’homme et la femme',
         objectPosition: 'center 12%',
       },
       {
@@ -214,39 +217,182 @@ export const memoryContent = {
   },
 
   nav: [
-    { to: '/', label: 'Accueil', icon: '🏛️' },
-    { to: '/histoire', label: 'Notre histoire', icon: '📖' },
-    { to: '/timeline', label: '15 ans', icon: '⏳' },
-    { to: '/ceremonie', label: 'Cérémonie', icon: '💍' },
-    { to: '/voix', label: 'Voix', icon: '🎙️' },
-    { to: '/galerie', label: 'Galerie', icon: '📸' },
-    { to: '/temoignages', label: 'Témoignages', icon: '✉️' },
-    { to: '/famille', label: 'Famille', icon: '👨‍👩‍👧' },
-    { to: '/livre', label: 'Livre', icon: '📚' },
-    { to: '/capsule', label: 'Capsule', icon: '🔐' },
-    { to: '/vault', label: 'Vault', icon: '🔒' },
+    { to: '/', label: 'Accueil' },
+    { to: '/histoire', label: 'Histoire' },
+    { to: '/galerie', label: 'Galerie' },
+    { to: '/ceremonie', label: 'Cérémonie' },
+    { to: '/voix', label: 'Voix' },
+    { to: '/famille', label: 'Famille' },
+    { to: '/voeux', label: 'Messages' },
+    { to: '/onememoria', label: 'Contact' },
   ],
 
   museumRooms: [
     { to: '/', label: 'Accueil', icon: '🏛️', text: 'Le seuil de la mémoire' },
+    { to: '/apropos', label: 'À propos', icon: '👩‍❤️‍👨', text: 'L’homme et la femme' },
     { to: '/histoire', label: 'Histoire', icon: '📖', text: 'Le récit des origines' },
-    { to: '/timeline', label: 'Timeline', icon: '⏳', text: 'Quinze années en mouvement' },
-    { to: '/ceremonie', label: 'Cérémonie', icon: '💍', text: 'Revivre la journée' },
-    { to: '/voix', label: 'Voix', icon: '🎙️', text: 'Ce que les images ne disent pas' },
+    { to: '/evenement', label: 'Événement', icon: '💍', text: 'Les étapes importantes' },
     { to: '/galerie', label: 'Galerie', icon: '📸', text: 'Les photographies' },
-    { to: '/famille', label: 'Famille', icon: '👨‍👩‍👧', text: 'Espace privé' },
-    { to: '/temoignages', label: 'Témoignages', icon: '✉️', text: 'Les autres voix' },
+    { to: '/famille', label: 'Famille', icon: '👨‍👩‍👧', text: 'Parents, témoins & proches' },
+    { to: '/voeux', label: 'Messages', icon: '✉️', text: 'Écrire au couple' },
+    { to: '/onememoria', label: 'Contact', icon: '📞', text: 'Écrire au couple' },
+    { to: '/ceremonie', label: 'Cérémonie', icon: '🎥', text: 'Revivre la journée' },
+    { to: '/voix', label: 'Voix', icon: '🎙️', text: 'Ce que les images ne disent pas' },
     { to: '/livre', label: 'Livre', icon: '📚', text: 'L’héritage relié' },
     { to: '/capsule', label: 'Capsule', icon: '🔐', text: 'Parler au futur' },
     { to: '/vault', label: 'Vault', icon: '🔒', text: 'Les originaux protégés' },
   ],
 
   hero: {
-    kicker: 'Une mémoire numérique',
-    titleBefore: 'Quinze années devenues une',
-    titleScript: 'Mémoire',
+    kicker: 'Quinze années de vie commune',
+    titleBefore: 'Israël Mutombo',
+    titleScript: '& son épouse',
+    tagline: 'Couple Israël Mutombo',
     subtitle:
-      'Une histoire construite au fil du temps, célébrée aujourd’hui et transmise aux générations futures.',
+      'Une histoire construite au fil du temps — quinze années, une même direction, célébrée en 2026.',
+  },
+
+  about: {
+    sectionKicker: 'À propos',
+    sectionTitle: 'Couple Israël Mutombo',
+    groom: {
+      title: 'L’homme',
+      name: 'Israël Mutombo',
+      nickname: '',
+      image: '/img/memoire/post-israel-2.jpg',
+      objectPosition: 'center 18%',
+      description:
+        'Israël Mutombo, aux côtés de son épouse, construit depuis 2011 une histoire de quinze années. Cette mémoire en conserve le visage, les images et la célébration de 2026.',
+    },
+    bride: {
+      title: 'La femme',
+      name: '[Nom de l’épouse]',
+      nickname: '',
+      image: '/img/memoire/post-couple-rap2kin.jpg',
+      objectPosition: 'center 12%',
+      description:
+        'À ses côtés, la femme — dont le nom sera renseigné ici — partage ce chemin depuis 2011. Les photographies du couple, réunies dans cette archive, gardent le visage de leur vie commune.',
+    },
+  },
+
+  story: {
+    sectionKicker: 'Histoire',
+    sectionTitle: 'Leur rencontre & leur parcours',
+    firstMeeting: {
+      title: 'Première rencontre',
+      dateLabel: 'Date à documenter',
+      image: '/img/memoire/post-couple-rap2kin.jpg',
+      objectPosition: 'center 12%',
+      body: 'La date et le récit de leur première rencontre seront ajoutés ici par le couple, sans invention.',
+    },
+    journey: {
+      title: 'Leur parcours',
+      dateLabel: '2011 — 2026',
+      image: '/img/memoire/post-kinoiserie.jpg',
+      objectPosition: 'center 20%',
+      body: 'Leur vie commune commence en 2011. Au fil des quinze années, leur histoire se construit. En 2026, Israël Mutombo et son épouse célèbrent ce chemin — le cœur de cette mémoire numérique.',
+    },
+    fullStory:
+      'Cette mémoire rassemble ce qui est déjà connu : un commencement en 2011, quinze années de vie commune, et une célébration en 2026. Le film officiel, les portraits du couple et les images de la fête y sont conservés. Les détails de la première rencontre et des lieux exacts seront documentés par le couple.',
+  },
+
+  steps: [
+    {
+      id: 'union',
+      label: 'Le commencement',
+      date: '2011',
+      place: '',
+      known: true,
+      text: 'Le début de leur vie commune. La date exacte et le lieu seront ajoutés par le couple.',
+    },
+    {
+      id: 'renewal',
+      label: 'Célébration des 15 ans',
+      date: '2026',
+      place: '',
+      known: true,
+      text: 'Quinze années célébrées. Le film officiel de la journée est conservé ici.',
+    },
+  ],
+
+  events: {
+    sectionKicker: 'Événement',
+    sectionTitle: 'Dates importantes',
+    intro:
+      'Les étapes documentées de leur histoire — du commencement en 2011 à la célébration de 2026.',
+    details:
+      'D’autres souvenirs d’époque pourront s’ajouter ici. Pour 2026, la journée est déjà conservée : cérémonie, portraits et fête.',
+    items: [
+      {
+        title: 'Le commencement',
+        dateLabel: '2011',
+        image: '/img/memoire/post-israel-2.jpg',
+        objectPosition: 'center 18%',
+        html: 'Le point de départ de leur vie commune. Date exacte, lieu et récit d’époque à documenter.',
+        videoUrl: null,
+      },
+      {
+        title: 'Quinze années de vie commune',
+        dateLabel: '2011 — 2026',
+        image: '/img/memoire/post-kinoiserie.jpg',
+        objectPosition: 'center 20%',
+        html: 'Une histoire construite au fil du temps, aujourd’hui rassemblée dans cette mémoire.',
+        videoUrl: null,
+      },
+      {
+        title: 'Célébration des 15 ans',
+        dateLabel: '2026',
+        image: '/img/memoire/post-israel-3.jpg',
+        objectPosition: 'center 18%',
+        html: 'Quinze années célébrées ensemble. Le film officiel de la journée est disponible.',
+        videoUrl: 'https://www.youtube.com/watch?v=LICyiHyQMv8',
+      },
+      {
+        title: 'La réception',
+        dateLabel: '2026',
+        image: '/img/memoire/post-malachie.jpg',
+        objectPosition: 'center 40%',
+        html: 'La fête, la danse, les proches — les images de la journée réunies dans la galerie.',
+        videoUrl: null,
+      },
+    ],
+  },
+
+  family: {
+    sectionKicker: 'Famille',
+    sectionTitle: 'Famille & proches',
+    intro: 'Les noms réels seront ajoutés par le couple. Aucune identité n’est inventée.',
+    parentsGroom: { label: 'Parents de l’homme', names: 'À documenter' },
+    parentsBride: { label: 'Parents de la femme', names: 'À documenter' },
+    witnesses: { sectionTitle: 'Proches', members: [] },
+    bridesmaids: { sectionTitle: 'Enfants', members: [] },
+    others: { sectionTitle: 'Autres personnes importantes', names: 'À documenter' },
+  },
+
+  message: {
+    main: 'Une histoire construite au fil du temps — quinze années, une même direction, célébrée en 2026.',
+    quote: 'Vos moments passent. Votre mémoire reste.',
+    voeuxKicker: 'Messages',
+    voeuxTitle: 'Écrire au couple',
+    voeuxIntro:
+      'Votre présence, vos prières et vos messages comptent. Laissez ici un mot pour Israël Mutombo et son épouse.',
+  },
+
+  contact: {
+    intro: 'Contact — WhatsApp :',
+    phoneLabel: '099 16 83 269',
+    phoneHref: 'tel:+243991683269',
+    whatsappHref: 'https://api.whatsapp.com/send?phone=243991683269',
+    emailLabel: '',
+    emailHref: '',
+  },
+
+  footer: {
+    creditLabel: 'Conçu par',
+    creditName: 'One Memoria',
+    creditUrl: 'https://www.onememoria.com',
+    quote: 'Vos moments passent. Votre mémoire reste.',
+    quotePremium: 'Une union bâtie au fil du temps — Couple Israël Mutombo.',
   },
 
   homeStories: [
@@ -262,7 +408,7 @@ export const memoryContent = {
       id: 'story-presence',
       src: '/img/memoire/post-israel-1.jpg',
       kicker: 'Présence',
-      title: 'Le marié, ce soir-là',
+      title: 'L’homme, ce soir-là',
       caption: 'Un instant gardé pour toujours',
       objectPosition: 'center 15%',
     },
@@ -316,9 +462,9 @@ export const memoryContent = {
   ],
 
   stats: [
-    { value: '15', label: 'Années de mariage' },
+    { value: '15', label: 'Années ensemble' },
     { value: '2011', label: 'Année du commencement' },
-    { value: '2026', label: 'Année du renouvellement' },
+    { value: '2026', label: 'Année de la célébration' },
     { value: '∞', label: 'Une mémoire à transmettre' },
   ],
 
@@ -328,42 +474,16 @@ export const memoryContent = {
       year: '2011',
       title: 'Le commencement',
       description:
-        'Le point de départ d’une histoire à documenter. Les détails réels seront ajoutés par le couple.',
+        'Le point de départ de leur vie commune. Date exacte, lieu et récit d’époque à documenter.',
       replaceable: true,
-    },
-    {
-      id: '2014',
-      year: '2014',
-      title: 'Une nouvelle étape',
-      description: 'Une étape familiale à préciser — placeholder remplaçable.',
-      replaceable: true,
-    },
-    {
-      id: '2017',
-      year: '2017',
-      title: 'La famille',
-      description: 'Les années où le foyer s’agrandit. Souvenirs à collecter.',
-      replaceable: true,
-    },
-    {
-      id: '2020',
-      year: '2020',
-      title: 'Des souvenirs précieux',
-      description: 'Des moments intimes à conserver dans l’archive familiale.',
-      replaceable: true,
-    },
-    {
-      id: '2023',
-      year: '2023',
-      title: 'Une nouvelle saison',
-      description: 'Une saison de vie partagée, à relier aux photographies d’époque.',
-      replaceable: true,
+      src: '/img/memoire/post-israel-2.jpg',
     },
     {
       id: '2026',
       year: '2026',
-      title: '15 ans — renouvellement des vœux',
-      description: 'La cérémonie qui devient le cœur de cette mémoire numérique.',
+      title: '15 ans — la célébration',
+      description:
+        'La journée qui devient le cœur de cette mémoire numérique. Film officiel, portraits et fête.',
       replaceable: true,
       src: '/img/memoire/post-israel-3.jpg',
     },
@@ -391,7 +511,7 @@ export const memoryContent = {
     {
       id: 'voeux',
       time: '18:30',
-      title: 'Renouvellement des vœux',
+      title: 'Paroles du couple',
       body: 'Quinze années dites à voix haute, devant ceux qui comptent.',
     },
     {
@@ -416,7 +536,7 @@ export const memoryContent = {
 
   playerChapters: [
     { id: '01', title: 'Accueil', start: 0 },
-    { id: '02', title: 'Renouvellement des vœux', start: 180 },
+    { id: '02', title: 'Paroles du couple', start: 180 },
     { id: '03', title: 'Discours', start: 420 },
     { id: '04', title: 'Témoignages', start: 640 },
     { id: '05', title: 'Célébration', start: 840 },
@@ -497,7 +617,7 @@ export const memoryContent = {
     {
       id: 'm1',
       icon: '💍',
-      title: 'Renouvellement des vœux',
+      title: 'Paroles du couple',
       type: 'Cérémonie',
       timestamp: '18:32',
       description: 'Le moment central de la journée — à relier à la vidéo officielle.',
@@ -673,7 +793,7 @@ export const memoryContent = {
     { n: '07', title: 'Voix de la mémoire', text: 'Conservation des voix et témoignages.', to: '/voix' },
     { n: '08', title: 'QR Memory', text: 'Accès physique à la mémoire numérique.', to: { path: '/', hash: '#qr' } },
     { n: '09', title: 'Coffre-fort numérique', text: 'Conservation des archives originales.', to: '/vault' },
-    { n: '10', title: 'Timeline vivante', text: 'Évolution de la mémoire année après année.', to: '/timeline' },
+    { n: '10', title: 'Timeline vivante', text: 'Évolution de la mémoire année après année.', to: '/evenement' },
   ],
 
   roles: ['ADMIN', 'COUPLE', 'FAMILLE', 'INVITÉ', 'VISITEUR'],

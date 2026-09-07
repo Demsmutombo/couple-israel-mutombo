@@ -17,7 +17,29 @@ const shown = computed(() => (filter.value === 'Tous' ? items : items.filter((i)
   <MemoryLayout>
     <section class="mx-auto max-w-7xl px-6 py-16 text-center">
       <p class="museum-kicker">Galerie</p>
-      <h1 class="museum-title mt-4">Photographies & films</h1>
+      <h1 class="museum-title mt-4">Notre galerie</h1>
+      <p class="mx-auto mt-4 max-w-xl text-sm text-subtle">
+        Revivez chaque instant à travers nos souvenirs. Le lien Drive photos sera ajouté ici dès qu’il sera transmis.
+      </p>
+      <div class="mt-6 flex flex-wrap justify-center gap-3">
+        <a
+          v-if="content.media.driveUrl"
+          class="gold-btn inline-flex"
+          :href="content.media.driveUrl"
+          target="_blank"
+          rel="noopener"
+        >
+          Photos & vidéos
+        </a>
+        <a
+          class="gold-btn inline-flex"
+          :href="content.media.videosLink"
+          target="_blank"
+          rel="noopener"
+        >
+          Film de la cérémonie
+        </a>
+      </div>
       <div class="mt-12 grid gap-6 lg:grid-cols-2">
         <ArchiveVisual
           v-for="post in content.media.facebookPosts"

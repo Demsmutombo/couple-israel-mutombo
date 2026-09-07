@@ -3,7 +3,6 @@ import { ref } from 'vue'
 import MemoryNav from '@/components/layout/MemoryNav.vue'
 import MobileDock from '@/components/layout/MobileDock.vue'
 import SiteFooter from '@/components/layout/SiteFooter.vue'
-import MusicFab from '@/components/ui/MusicFab.vue'
 import BackToTopFab from '@/components/ui/BackToTopFab.vue'
 import { useScrollChrome } from '@/composables/useScrollChrome.js'
 import { useMemory } from '@/composables/useMemory.js'
@@ -30,7 +29,6 @@ useReveal(mainEl)
     </main>
     <SiteFooter v-if="!hideFooter" />
     <MobileDock />
-    <MusicFab />
     <BackToTopFab :visible="showBackTop" @click="scrollToTop" />
 
     <div

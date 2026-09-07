@@ -2,11 +2,13 @@
 import { RouterLink } from 'vue-router'
 import MemoryLayout from '@/components/layout/MemoryLayout.vue'
 import ArchiveVisual from '@/components/ui/ArchiveVisual.vue'
-import BeforeAfterSlider from '@/components/ui/BeforeAfterSlider.vue'
+import CoupleAbout from '@/components/memory/CoupleAbout.vue'
 import QrMemory from '@/components/ui/QrMemory.vue'
+import BeforeAfterSlider from '@/components/ui/BeforeAfterSlider.vue'
+import SearchMemory from '@/components/ui/SearchMemory.vue'
 import { useMemory } from '@/composables/useMemory.js'
 
-const { content, couple, startTour } = useMemory()
+const { content, couple } = useMemory()
 const media = content.media
 </script>
 
@@ -18,7 +20,7 @@ const media = content.media
         seed="hero"
         ratio="h-full w-full"
         :src="media.hero"
-        alt="Israël Mutombo et son épouse — arrivée de la célébration"
+        alt="Israël Mutombo et son épouse"
         eager
         object-position="center 18%"
       />
@@ -29,18 +31,13 @@ const media = content.media
           {{ content.hero.titleBefore }}
           <em class="script mt-1 block text-5xl sm:text-6xl md:text-7xl">{{ content.hero.titleScript }}</em>
         </h1>
+        <p class="mt-4 text-[11px] uppercase tracking-[0.28em] text-white/80">{{ content.hero.tagline }}</p>
         <p class="mt-6 max-w-lg text-sm leading-relaxed text-white/80">
           {{ content.hero.subtitle }}
         </p>
         <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
           <RouterLink class="gold-btn-solid" to="/ceremonie">Revivre la cérémonie</RouterLink>
           <RouterLink class="btn-ghost-light" to="/histoire">Notre histoire →</RouterLink>
-          <button type="button" class="inline-flex items-center gap-3 text-sm text-white" @click="startTour('guided')">
-            <span class="flex h-11 w-11 items-center justify-center rounded-full bg-white/15">
-              <i class="fas fa-play pl-0.5 text-xs" />
-            </span>
-            Découvrir en 5 min
-          </button>
         </div>
       </div>
     </section>
@@ -55,45 +52,59 @@ const media = content.media
       </div>
     </section>
 
-    <section class="bg-page px-6 py-20 lg:px-8">
-      <div class="mx-auto max-w-7xl text-center">
-        <p class="museum-kicker">Archives du couple</p>
-        <h2 class="museum-title mt-3">Les publications, en entier</h2>
-        <p class="mx-auto mt-4 max-w-xl text-sm text-subtle">
-          Les deux photographies du marié et de son épouse.
-        </p>
-        <div class="mt-12 grid gap-6 lg:grid-cols-2">
-          <article v-for="post in media.facebookPosts" :key="post.id">
-            <ArchiveVisual
-              :seed="post.id"
-              ratio="aspect-[4/5]"
-              :src="post.src"
-              :title="post.title"
-              :caption="post.caption"
-              kicker="Le couple"
-              eager
-              :object-position="post.objectPosition"
-            />
-          </article>
-        </div>
+    <CoupleAbout preview />
+
+    <section id="story" class="bg-page px-6 py-20 lg:px-8">
+      <div class="mx-auto max-w-6xl text-center">
+        <p class="museum-kicker">{{ content.story.sectionKicker }}</p>
+        <h2 class="museum-title mt-3">{{ content.story.sectionTitle }}</h2>
+      </div>
+      <div class="mx-auto mt-14 grid max-w-6xl gap-12 md:grid-cols-2">
+        <article>
+          <ArchiveVisual
+            seed="meet"
+            ratio="aspect-[4/5]"
+            :src="content.story.firstMeeting.image"
+            :title="content.story.firstMeeting.title"
+            kicker="Première rencontre"
+            :object-position="content.story.firstMeeting.objectPosition"
+          />
+          <p class="mt-5 text-xs font-semibold uppercase tracking-[0.16em] text-primary">
+            {{ content.story.firstMeeting.dateLabel }}
+          </p>
+          <h3 class="mt-2 font-display text-3xl text-ink">{{ content.story.firstMeeting.title }}</h3>
+          <p class="mt-4 text-sm leading-relaxed text-ink/80">{{ content.story.firstMeeting.body }}</p>
+        </article>
+        <article>
+          <ArchiveVisual
+            seed="journey"
+            ratio="aspect-[4/5]"
+            :src="content.story.journey.image"
+            :title="content.story.journey.title"
+            kicker="Parcours"
+            :object-position="content.story.journey.objectPosition"
+          />
+          <p class="mt-5 text-xs font-semibold uppercase tracking-[0.16em] text-primary">
+            {{ content.story.journey.dateLabel }}
+          </p>
+          <h3 class="mt-2 font-display text-3xl text-ink">{{ content.story.journey.title }}</h3>
+          <p class="mt-4 text-sm leading-relaxed text-ink/80">{{ content.story.journey.body }}</p>
+        </article>
+      </div>
+      <div class="mt-12 text-center">
+        <RouterLink class="gold-btn inline-flex" to="/histoire">Lire l’histoire complète</RouterLink>
       </div>
     </section>
 
     <section class="bg-page px-6 pb-20 lg:px-8">
       <div class="mx-auto max-w-7xl text-center">
         <p class="museum-kicker">Galerie</p>
-        <div class="mt-3 flex flex-col items-center gap-6">
-          <h2 class="max-w-xl font-display text-4xl text-ink md:text-5xl">
-            Chaque image raconte une
-            <em class="script text-5xl">histoire</em>
-          </h2>
-          <div class="max-w-sm">
-            <p class="text-sm leading-relaxed text-subtle">
-              Le couple, l’arrivée, la salle, la cérémonie — les visuels de cette journée, réunis ici.
-            </p>
-            <RouterLink class="btn-ink mt-5 inline-flex" to="/galerie">Voir toute la galerie</RouterLink>
-          </div>
-        </div>
+        <h2 class="mt-3 font-display text-4xl text-ink md:text-5xl">
+          Notre <em class="script text-5xl">galerie</em>
+        </h2>
+        <p class="mx-auto mt-4 max-w-xl text-sm text-subtle">
+          Le couple, la cérémonie, la fête — les visuels de cette journée, réunis ici.
+        </p>
         <div class="mt-12 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
           <RouterLink v-for="card in content.homeStories" :key="card.id" to="/galerie" class="group">
             <ArchiveVisual
@@ -107,57 +118,11 @@ const media = content.media
             />
           </RouterLink>
         </div>
+        <RouterLink class="btn-ink mt-10 inline-flex" to="/galerie">Voir toute la galerie</RouterLink>
       </div>
     </section>
 
-    <section class="section-dark px-6 py-20 lg:px-8">
-      <div class="mx-auto grid max-w-7xl items-center gap-10 text-center lg:grid-cols-3 lg:text-left">
-        <article>
-          <p class="font-script text-6xl leading-none text-primary">“</p>
-          <p class="mt-2 text-sm leading-relaxed text-white/80">
-            {{ content.guests[0].message }}
-          </p>
-          <p class="mt-4 text-primary">★★★★★</p>
-          <p class="mt-3 text-[11px] uppercase tracking-[0.2em] text-white/70">{{ content.guests[0].name }}</p>
-        </article>
-        <ArchiveVisual
-          seed="about-center"
-          ratio="aspect-[3/4]"
-          :src="media.couple"
-          title="Le couple"
-          kicker="Célébration 2026"
-          object-position="center 20%"
-        />
-        <article>
-          <p class="museum-kicker">Le couple</p>
-          <h2 class="mt-3 font-display text-4xl text-white">
-            {{ couple.husband }}
-            <em class="script block text-5xl">& son épouse</em>
-          </h2>
-          <p class="mt-5 text-sm leading-relaxed text-white/75">
-            {{ couple.years }}. {{ couple.anniversary }} ans de mariage, une mémoire qui se transmet.
-          </p>
-          <RouterLink class="gold-btn-solid mt-8 inline-flex" to="/histoire">Découvrir l’histoire</RouterLink>
-        </article>
-      </div>
-    </section>
-
-    <section class="bg-page px-6 py-16 lg:px-8">
-      <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 text-center md:flex-row md:text-left">
-        <div class="flex items-start gap-4">
-          <i class="far fa-clock mt-1 text-2xl text-primary" />
-          <div>
-            <h2 class="font-display text-3xl text-ink">Conservons cette journée</h2>
-            <p class="mt-2 max-w-lg text-sm text-subtle">
-              Prêt à transformer la cérémonie en une mémoire qui se transmet ?
-            </p>
-          </div>
-        </div>
-        <RouterLink class="btn-ink" to="/messages">Laisser un message</RouterLink>
-      </div>
-    </section>
-
-    <section class="bg-page px-6 py-16 lg:px-8">
+    <section class="bg-page px-6 pb-20 lg:px-8">
       <div class="mx-auto max-w-7xl text-center">
         <p class="museum-kicker">15 ans en un regard</p>
         <h2 class="museum-title mt-3">2011 versus 2026</h2>
@@ -169,7 +134,55 @@ const media = content.media
             after-position="center 42%"
           />
         </div>
+        <RouterLink class="gold-btn mt-10 inline-flex" to="/evenement">Voir la timeline</RouterLink>
       </div>
+    </section>
+
+    <section class="bg-page px-6 pb-20 lg:px-8">
+      <div class="mx-auto max-w-6xl">
+        <div class="text-center">
+          <p class="museum-kicker">Mémoire intelligente</p>
+          <h2 class="museum-title mt-3">Interroger les souvenirs</h2>
+        </div>
+        <div class="mt-10">
+          <SearchMemory />
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-page px-6 pb-20 lg:px-8">
+      <div class="mx-auto max-w-7xl text-center">
+        <p class="museum-kicker">Salles de la mémoire</p>
+        <h2 class="museum-title mt-3">Ce que cette archive permet</h2>
+      </div>
+      <div class="mx-auto mt-12 grid max-w-7xl gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        <RouterLink
+          v-for="item in content.innovations"
+          :key="item.n"
+          :to="item.to"
+          class="border border-primary/15 p-5 text-left transition hover:border-primary/50"
+        >
+          <p class="text-[10px] uppercase tracking-[0.2em] text-primary">{{ item.n }}</p>
+          <h3 class="mt-3 font-display text-xl text-ink">{{ item.title }}</h3>
+          <p class="mt-2 text-sm text-subtle">{{ item.text }}</p>
+        </RouterLink>
+      </div>
+    </section>
+
+    <section id="rsvp" class="section-dark px-6 py-20 text-center lg:px-8">
+      <p class="museum-kicker">{{ content.message.voeuxKicker }}</p>
+      <h2 class="mt-4 font-display text-4xl text-white md:text-5xl">{{ content.message.voeuxTitle }}</h2>
+      <p class="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-white/75">
+        {{ content.message.voeuxIntro }}
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        <RouterLink class="gold-btn-solid" to="/voeux">Laisser un message</RouterLink>
+        <RouterLink class="gold-btn" to="/voix">Écouter les voix</RouterLink>
+      </div>
+      <blockquote class="mx-auto mt-16 max-w-xl font-display text-2xl italic text-primary-soft">
+        “{{ content.message.quote }}”
+      </blockquote>
+      <p class="mt-4 text-sm text-white/60">{{ content.footer.quotePremium }}</p>
     </section>
 
     <section id="qr" class="bg-page px-6 py-20 text-center lg:px-8">
