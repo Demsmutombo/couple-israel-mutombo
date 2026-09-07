@@ -50,11 +50,12 @@ export const memoryContent = {
     before: '/img/memoire/post-israel-1.jpg',
     after: '/img/memoire/post-malachie.jpg',
     youtubeId: 'LICyiHyQMv8',
-    youtubeTitle: 'Mariage Israël Mutombo — cérémonie',
-    youtubePoster: '/img/memoire/ceremonie-youtube.jpg',
-    youtubeUrl: 'https://www.youtube.com/watch?v=LICyiHyQMv8',
+    youtubeTitle: 'Cérémonie générale',
+    youtubePoster: '/img/memoire/reel-ils-ont-dit.jpg',
+    youtubeUrl: 'https://www.facebook.com/reel/864966269915764',
+    ceremonyHref: 'https://www.facebook.com/reel/864966269915764',
     driveUrl: null,
-    videosLink: 'https://www.youtube.com/watch?v=LICyiHyQMv8',
+    videosLink: 'https://www.facebook.com/reel/864966269915764',
     steps: {
       arrivee: {
         photo: '/img/memoire/reel-ils-ont-dit.jpg',
@@ -87,11 +88,11 @@ export const memoryContent = {
     },
     videos: [
       {
-        id: 'yt',
-        kind: 'youtube',
-        title: 'Cérémonie — film officiel',
-        href: 'https://www.youtube.com/watch?v=LICyiHyQMv8',
-        poster: '/img/memoire/ceremonie-youtube.jpg',
+        id: 'ceremonie-generale',
+        kind: 'video',
+        title: 'Cérémonie générale',
+        href: 'https://www.facebook.com/reel/864966269915764',
+        poster: '/img/memoire/reel-ils-ont-dit.jpg',
         category: 'Cérémonie',
       },
       {
@@ -101,14 +102,6 @@ export const memoryContent = {
         href: 'https://www.facebook.com/share/r/1BsZZ5auZt/',
         poster: '/img/memoire/reel-ambiance-15ans.jpg',
         category: 'Réception',
-      },
-      {
-        id: 'reel-ils-ont-dit',
-        kind: 'video',
-        title: 'Ils ont dit…',
-        href: 'https://www.facebook.com/reel/864966269915764',
-        poster: '/img/memoire/reel-ils-ont-dit.jpg',
-        category: 'Témoignages',
       },
       {
         id: 'v-felicitations',
@@ -182,7 +175,7 @@ export const memoryContent = {
         title: 'Cérémonie — image du film',
         category: 'Cérémonie',
         objectPosition: 'center 35%',
-        href: 'https://www.youtube.com/watch?v=LICyiHyQMv8',
+        href: 'https://www.facebook.com/reel/864966269915764',
       },
     ],
     facebookPosts: [
@@ -517,7 +510,7 @@ export const memoryContent = {
         image: '/img/memoire/post-israel-3.jpg',
         objectPosition: 'center 18%',
         html: 'Quinze années célébrées ensemble. Le film officiel de la journée est disponible.',
-        videoUrl: 'https://www.youtube.com/watch?v=LICyiHyQMv8',
+        videoUrl: 'https://www.facebook.com/reel/864966269915764',
       },
       {
         title: 'La réception',
@@ -1029,6 +1022,7 @@ export function buildGalleryItems() {
       place: 'Célébration des 15 ans',
       description: 'Photographie de la journée.',
       src: item.src,
+      href: item.href || '',
       objectPosition: item.objectPosition || 'center',
       kind: 'photo',
     }))
@@ -1042,10 +1036,11 @@ export function buildGalleryItems() {
       date: '2026',
       people: 'Israël Mutombo & son épouse',
       place: 'Célébration des 15 ans',
-      description: item.kind === 'youtube' ? 'Film de la cérémonie.' : 'Image extraite de la journée.',
+      description: item.id === 'ceremonie-generale' ? 'Film de la cérémonie générale.' : 'Séquence de la journée.',
       src: item.poster,
+      href: item.href || memoryContent.media.ceremonyHref,
       objectPosition: 'center',
-      kind: item.kind === 'youtube' ? 'video' : 'photo',
+      kind: 'video',
     }))
 
   return [...photos, ...videos]

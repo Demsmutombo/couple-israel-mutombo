@@ -9,33 +9,58 @@ const props = defineProps({
   hideSource: { type: Boolean, default: false },
 })
 
+const isPhoto = computed(() => props.kind === 'post' || props.kind === 'photo')
+
 const pluginSrc = computed(() => {
   const encoded = encodeURIComponent(props.href.replace('web.facebook.com', 'www.facebook.com'))
-  const isPost = props.kind === 'post' || props.kind === 'photo'
-  const base = isPost
+  const base = isPhoto.value
     ? 'https://www.facebook.com/plugins/post.php'
     : 'https://www.facebook.com/plugins/video.php'
-  return `${base}?href=${encoded}&show_text=false&width=560`
+  return `${base}?href=${encoded}&show_text=false&width=734`
 })
 </script>
 
 <template>
-  <article class="overflow-hidden bg-void">
-    <div
-      class="relative bg-night"
-      :class="compact ? 'aspect-[4/5]' : kind === 'post' || kind === 'photo' ? 'min-h-[720px]' : 'aspect-video'"
-    >
+  <article v-if="isPhoto" class="overflow-hidden bg-void">
+    <div class="relative aspect-[4/5] bg-night" :class="compact ? '' : ''">
       <iframe
         :src="pluginSrc"
         class="absolute inset-0 h-full w-full"
         allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
         allowfullscreen
         loading="lazy"
-        :title="title || 'Publication Facebook'"
+        :title="title || 'Publication'"
       />
     </div>
-    <div v-if="title && !compact" class="flex items-center justify-between gap-3 px-4 py-3">
-      <p class="font-display text-lg text-white">{{ title }}</p>
+  </article>
+  <article v-else class="mx-auto w-full overflow-hidden bg-black">
+    <div class="fb-video-only">
+      <iframe
+        :src="pluginSrc"
+        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+        allowfullscreen
+        loading="lazy"
+        :title="title || 'Vidéo'"
+      />
     </div>
   </article>
 </template>
+
+<style scoped>
+.fb-video-only {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #000;
+}
+
+.fb-video-only iframe {
+  position: absolute;
+  top: -48px;
+  left: 0;
+  width: 100%;
+  height: calc(100% + 200px);
+  border: 0;
+}
+</style>
